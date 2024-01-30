@@ -3,54 +3,71 @@ import React from 'react'
 import Image from 'next/image'
 import {
   AbsoluteCenter,
+  Box,
   Container,
-  VStack,
   Text,
-  Box
+  VStack,
 } from '@chakra-ui/react'
-// import styles from './page.module.css'
-
-const delay = 8000;
-const ease = 10000;
+import styles from './page.module.css'
 
 export default function Home() {
-  const [imageNum, setImageNum] = React.useState(1);
-  const [imageNumToString, setImageNumToString] = React.useState('01');
-
-  const updateImage = (imageNum: number) => {
-    let newNum: string;
-    if (imageNum < 10) {
-      newNum = '0' + imageNum;
-    } else if (imageNum === 12) {
-      newNum = '01';
-    } else {
-      newNum = '' + imageNum;
-    }
-
-    setImageNumToString(newNum);
-  }
-
-  React.useEffect(() => {
-    let newNum = imageNum + 1;
-    let timer = setTimeout(() => setImageNum(newNum + 1), delay)
-
-    updateImage(newNum);
-
-    return () => {
-      timer;
-    };
-  }, [])
-
-  React.useEffect(() => { }, [imageNum, imageNumToString])
-
-
   return (
     <main>
       <Box
-        backgroundImage={`url(background${imageNumToString}.jpg)`}
         backgroundRepeat={'no-repeat'}
         backgroundSize={'cover'}
       >
+        <Box className={styles.background}>
+          <Box
+            id={styles.p1}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p2}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p3}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p4}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p5}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p6}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p7}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p8}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p9}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p10}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p11}
+            className={styles.backgroundPic}
+          />
+          <Box
+            id={styles.p12}
+            className={styles.backgroundPic}
+          />
+          
+        </Box>
         <Container height={'100vh'}>
           <AbsoluteCenter>
             <VStack>
