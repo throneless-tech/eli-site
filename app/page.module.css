@@ -24,11 +24,12 @@
   bottom: 0;
   display: block;
   left: 0;
-  height: 100vh;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   right: 0;
   top: 0;
   width: 100%;
+  z-index: -1;
 }
 
 .backgroundPic {
