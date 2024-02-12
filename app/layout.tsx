@@ -1,10 +1,7 @@
 import { Providers } from './providers'
 
 import type { Metadata } from 'next'
-import { Chivo } from 'next/font/google'
 // import './globals.css'
-
-const chivo = Chivo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Eli's Site",
@@ -18,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={chivo.className}>
+      <body>
         <Providers>{children}</Providers>  
       </body>
     </html>

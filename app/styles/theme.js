@@ -21,4 +21,9 @@ export const theme = extendTheme({
       900: "#EBAD49",
     }
   },
+  textStyles: {
+    wotd: {
+      fontFamily: 'Shadows Into Light Two'
+    }
+  }
 })
