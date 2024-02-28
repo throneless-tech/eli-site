@@ -1,30 +1,31 @@
 "use client"
-import React from 'react'
-import Image from 'next/image'
-import { chivo } from './styles/fonts'
-import Masonry from 'masonry-layout'
+import React, { useRef, useState } from 'react';
+import Image from 'next/image';
+import { chivo } from './styles/fonts';
+import Draggable from 'react-draggable';
+import { Masonry } from 'react-masonry';
 import {
   Box,
   Center,
   Container,
   Text,
   VStack,
-} from '@chakra-ui/react'
-import styles from './styles/page.module.css'
+} from '@chakra-ui/react';
+import styles from './styles/page.module.css';
 
 import CardAudio from './Components/CardAudio';
 import CardImage from './Components/CardImage';
 import CardLink from './Components/CardLink';
 import CardWord from './Components/CardWord';
 
+
 export default function Home() {
+  // check if images should be randomized or form a collage
+  const [collage, setCollage] = useState(false);
 
-  var msnry = new Masonry('.grid', {
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true
-  });
-
+  const handleCollage = () => {
+    return setCollage(!collage)
+  }
 
   return (
     <main>
@@ -79,6 +80,23 @@ export default function Home() {
             className={styles.backgroundPic}
           />
         </Box>
+        <Box>
+          <Text
+            as={"button"}
+            onClick={handleCollage}
+            className={chivo.className}
+            color="#FFFFFF"
+            display={"block"}
+            fontSize={24}
+            fontWeight="bold"
+            marginLeft={"auto"}
+            marginRight={0}
+            style={{ filter: "drop-shadow(0px 4px 2px #4C4E52)" }}
+            width={130}
+          >
+            Collage
+          </Text>
+        </Box>
         <Center marginY={10}>
           <VStack>
             <Image
@@ -93,25 +111,48 @@ export default function Home() {
             </Text>
           </VStack>
         </Center>
-        <Container maxW={'container.2xl'}>
-          <Box
-            className='grid'
-          >
-            <Box className='grid-sizer' />
-            <Box className='grid-item' marginBottom={4}>
-              <CardImage />
-            </Box>
-            <Box className='grid-item' marginBottom={4}>
-              <CardAudio />
-            </Box>
-            <Box className='grid-item' marginBottom={4}>
-              <CardWord />
-            </Box>
-            <Box className='grid-item' marginBottom={4}>
-              <CardLink />
-            </Box>
-          </Box>
-        </Container>
+        {collage ? (
+          <Container maxW={'container.2xl'}>
+            <Masonry>
+              <Box padding={4}>
+                <CardImage />
+              </Box>
+              <Box padding={4}>
+                <CardAudio />
+              </Box>
+              <Box padding={4}>
+                <CardWord />
+              </Box>
+              <Box padding={4}>
+                <CardLink />
+              </Box>
+            </Masonry>
+          </Container>
+        ) : (
+          <>
+              <Draggable defaultPosition={{ x: 25, y: 25 }}>
+              <Box className={styles.card}>
+                <CardImage />
+              </Box>
+            </Draggable>
+              <Draggable defaultPosition={{ x: -25, y: -25 }}>
+              <Box className={styles.card}>
+                <CardAudio />
+              </Box>
+            </Draggable>
+            <Draggable defaultPosition={{x: 500, y: -250}}>
+              <Box className={styles.card}>
+                <CardWord />
+              </Box>
+            </Draggable>
+            <Draggable defaultPosition={{ x: 250, y: 250 }}>
+              <Box className={styles.card}>
+                <CardLink />
+              </Box>
+            </Draggable>
+          </>
+        )}
+
       </Box>
     </main>
   )
