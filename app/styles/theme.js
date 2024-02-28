@@ -1,4 +1,29 @@
-import { extendTheme } from "@chakra-ui/react"
+import { defineStyleConfig, extendTheme } from "@chakra-ui/react"
+
+const Button = defineStyleConfig({
+  // The styles all button have in common
+  baseStyle: {
+    fontWeight: 'bold',
+    borderRadius: 'base', // <-- border radius is same for all variants and sizes
+  },
+  // Two variants: outline and solid
+  variants: {
+    outline: {
+      border: '2px solid',
+      borderColor: 'red.500',
+      color: 'red.500',
+    },
+    solid: {
+      bg: 'red.500',
+      boxShadow: '0 4px 4px #4C4E52',
+      color: 'white',
+    },
+  },
+  // The default size and variant values
+  defaultProps: {
+    variant: 'solid',
+  },
+})
 
 export const theme = extendTheme({
   colors: {
@@ -20,6 +45,9 @@ export const theme = extendTheme({
       500: "#E7C85C",
       900: "#EBAD49",
     }
+  },
+  components: {
+    Button,
   },
   textStyles: {
     wotd: {
