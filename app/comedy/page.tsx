@@ -23,13 +23,13 @@ import Nav from '../Components/Nav';
 import { SignatureIcon } from '../icons/Signature';
 
 
-export default function YogaPage() {
+export default function ComedyPage() {
 
   return (
     <main>
       <Box className={styles.background}>
         <ChakraImage
-          src='/background-yoga.jpg'
+          src='/background-comedy.jpg'
           bgSize={'cover'}
         />
       </Box>
@@ -44,25 +44,22 @@ export default function YogaPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Yoga for healing was essential to Eli. 
+            Mental health was essential to Eli.
           </Text>
-          <Nav selected="yoga" />
+          <Nav selected="comedy" />
         </VStack>
       </Center>
-      <Container marginTop={12}>
-        <Flex direction={['column', 'row']} alignItems='center' gap='2'>
+      <Container maxW={'2xl'} marginTop={12}>
+        <Flex direction={['column', 'row']} alignItems='center' gap='6'>
           <Box as='h2' textStyle='h2' className={chivo.className}>
             Check out these resources
           </Box>
-          <VStack align='flex-start' className={chivo.className} fontSize={24} width={300}>
-            <Link href='https://www.patriciawaldenyoga.com/'>
-              Patricia Walden Yoga
+          <VStack align='flex-start' className={chivo.className} fontSize={24}>
+            <Link href='https://www.youtube.com/c/EndlessHoneymoon'>
+              Endless Honeymoon podcast
             </Link>
-            <Link href='https://iynaus.org/'>
-              Iynaus
-            </Link>
-            <Link href='http://corawen.com/'>
-              Cora Wen
+            <Link href='https://www.netflix.com/title/81289483'>
+              Bo Burnham: Inside
             </Link>
           </VStack>
         </Flex>

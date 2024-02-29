@@ -2,18 +2,19 @@ import React from 'react';
 import { chivo } from '../styles/fonts';
 import {
   Button,
-  HStack,
+  Flex,
 } from '@chakra-ui/react';
 
 export default function Nav(props: any) {
   const { selected } = props;
 
   return (
-    <HStack
+    <Flex
       align="center"
+      direction={['column', 'row']}
       justify="center"
       marginTop={4}
-      spacing={4}
+      gap='4'
     >
       <Button
         as="a"
@@ -71,6 +72,6 @@ export default function Nav(props: any) {
       >
         Fashion
       </Button>
-    </HStack>
+    </Flex>
   )
 }
