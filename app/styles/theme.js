@@ -1,4 +1,5 @@
 import { defineStyleConfig, extendTheme } from "@chakra-ui/react"
+import { chivo } from './fonts';
 
 const Button = defineStyleConfig({
   // The styles all button have in common
@@ -29,7 +30,7 @@ export const theme = extendTheme({
   colors: {
     orange: {
       100: "#FAB66B",
-      500: "#FA846B",
+      500: "#FA846A",
       900: "#EF7332",
     },
     pink: {
@@ -50,6 +51,11 @@ export const theme = extendTheme({
     Button,
   },
   textStyles: {
+    h2: {
+      fontFamily: chivo,
+      fontSize: 36,
+      fontWeight: "bold",
+    },
     wotd: {
       fontFamily: 'Shadows Into Light Two'
     }

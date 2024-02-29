@@ -6,11 +6,12 @@ import Draggable from 'react-draggable';
 import { Masonry } from 'react-masonry';
 import {
   Box,
-  Button,
   Center,
   Container,
-  HStack,
+  Heading,
+  Link,
   Text,
+  VisuallyHidden,
   VStack,
 } from '@chakra-ui/react';
 import styles from './styles/page.module.css';
@@ -19,7 +20,7 @@ import CardAudio from './Components/CardAudio';
 import CardImage from './Components/CardImage';
 import CardLink from './Components/CardLink';
 import CardWord from './Components/CardWord';
-
+import Nav from './Components/Nav';
 
 export default function Home() {
   // check if images should be randomized or form a collage
@@ -101,75 +102,24 @@ export default function Home() {
         </Box>
         <Center marginY={10}>
           <VStack>
-            <Image
-              src='/signature.svg'
-              alt='Eli Fife Cragin signature'
-              height={300}
-              priority
-              width={600}
-            />
+            <Link>
+              <Image
+                src='/signature.svg'
+                alt='Eli Fife Cragin signature'
+                height={300}
+                priority
+                width={600}
+              />
+            </Link>
+            <VisuallyHidden>
+              <Heading as='h1'>
+                Eli Fife Cragin
+              </Heading>
+            </VisuallyHidden>
             <Text className={chivo.className} fontSize={20} fontWeight={600} textAlign={'center'} marginTop={8} width={760}>
               lived in Cape Cod, New York and California. He broke every rule he could and was notoriously late for everything, always with an iced coffee and at least two other beverages in hand. He loved yoga, cloudy days, swimming in all bodies of water, clothing (ranging from thrift stores to designer wear), and travel, as long as it didn't include too many planned activities.
             </Text>
-            <HStack
-              align="center"
-              justify="center"
-              marginTop={4}
-              spacing={4}
-            >
-              <Button
-                as="a"
-                className={chivo.className}
-                fontWeight="bold"
-                fontSize={24}
-                href='/yoga'
-                textAlign="center"
-                _hover={{
-                  background: "red.900",
-                }}
-              >
-                Yoga
-              </Button>
-              <Button
-                as="a"
-                className={chivo.className}
-                fontWeight="bold"
-                fontSize={24}
-                href='/mental-health'
-                textAlign="center"
-                _hover={{
-                  background: "red.900",
-                }}
-              >
-                Mental Health
-              </Button>
-              <Button
-                as="a"
-                className={chivo.className}
-                fontWeight="bold"
-                fontSize={24}
-                href='/comedy'
-                textAlign="center"
-                _hover={{
-                  background: "red.900",
-                }}
-              >
-                Comedy
-              </Button>
-              <Button
-                as="a"
-                className={chivo.className}
-                fontWeight="bold"
-                fontSize={24}
-                href='/fashion'
-                textAlign="center"
-                _hover={{
-                  background: "red.900",
-                }}
-              >
-                Fashion
-              </Button>
-            </HStack>
+            <Nav />
           </VStack>
         </Center>
         {collage ? (
