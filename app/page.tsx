@@ -117,7 +117,7 @@ export default function Home() {
               </Heading>
             </VisuallyHidden>
             <Text className={chivo.className} fontSize={20} fontWeight={600} textAlign={'center'} marginTop={8} width={760}>
-              lived in Cape Cod, New York and California. He broke every rule he could and was notoriously late for everything, always with an iced coffee and at least two other beverages in hand. He loved yoga, cloudy days, swimming in all bodies of water, clothing (ranging from thrift stores to designer wear), and travel, as long as it didn't include too many planned activities.
+              lived in Cape Cod, New York and California. He broke every rule he could and was notoriously late for everything, always with an iced coffee and at least two other beverages in hand. He loved yoga, cloudy days, swimming in all bodies of water, clothing (ranging from thrift stores to designer wear), and travel, as long as it didn&#39;t include too many planned activities.
             </Text>
             <Nav />
           </VStack>
