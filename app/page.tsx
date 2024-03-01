@@ -17,6 +17,8 @@ import {
 } from '@chakra-ui/react';
 import styles from './styles/page.module.css';
 
+import useWindowDimensions from './hooks/useWindowDimensions';
+
 import CardAudio from './Components/CardAudio';
 import CardImage from './Components/CardImage';
 import CardLink from './Components/CardLink';
@@ -25,6 +27,7 @@ import Nav from './Components/Nav';
 
 export default function Home() {
   const ref = React.createRef();
+  const { height, width } = useWindowDimensions();
 
   // check if images should be randomized or form a collage
   const [collage, setCollage] = useState(false);
@@ -34,15 +37,14 @@ export default function Home() {
   }
 
   // media query
-  const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 768px)").matches
-  )
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
-    if (window) {
-      window
-        .matchMedia("(min-width: 768px)")
-        .addEventListener('change', e => setMatches(e.matches));
+    if (width && width >= 768) {
+      setMatches(true);
+    } else {
+      setMatches(false);
+      setCollage(true);
     }
   }, []);
 
@@ -115,6 +117,7 @@ export default function Home() {
               marginRight={0}
               style={{ filter: "drop-shadow(0px 4px 2px #4C4E52)" }}
               width={130}
+              zIndex={5}
             >
               Collage
             </Text>
