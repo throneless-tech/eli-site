@@ -47,6 +47,33 @@
   width: 100%;
 }
 
+.backgroundStatic {
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#comedy {
+  background-image: url('/background-comedy.jpg');
+}
+
+#fashion {
+  background-image: url('/background-fashion.jpg');
+}
+
+#mentalHealth {
+  background-image: url('/background-mental-health.jpg');
+}
+
+#yoga {
+  background-image: url('/background-yoga.jpg');
+}
+
 #p1 {
   animation-delay: 0ms;
   background-image: url('/background01.jpg');
@@ -111,7 +138,7 @@
   max-width: 300px;
 }
 
-.card:hover {
+.card:hover, .nav:hover {
   cursor: move;
 }
 

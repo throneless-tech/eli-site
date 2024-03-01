@@ -28,9 +28,9 @@ export default function ComedyPage() {
   return (
     <main>
       <Box className={styles.background}>
-        <ChakraImage
-          src='/background-comedy.jpg'
-          bgSize={'cover'}
+        <Box
+          id={styles.comedy}
+          className={styles.backgroundStatic}
         />
       </Box>
       <Center marginTop={8}>

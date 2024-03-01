@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import Image from 'next/image';
+import { Masonry } from 'react-masonry'
 import { chivo } from '../styles/fonts';
 import {
   Box,
@@ -17,6 +17,7 @@ import {
 import styles from '../styles/page.module.css';
 
 // components
+import { CardImage } from '../Components/CardImage';
 import Nav from '../Components/Nav';
 
 // icons and images
@@ -24,13 +25,15 @@ import { SignatureIcon } from '../icons/Signature';
 
 
 export default function YogaPage() {
+  const ref1 = React.createRef();
+  const ref2 = React.createRef();
 
   return (
     <main>
       <Box className={styles.background}>
-        <ChakraImage
-          src='/background-yoga.jpg'
-          bgSize={'cover'}
+        <Box
+          id={styles.yoga}
+          className={styles.backgroundStatic}
         />
       </Box>
       <Center marginTop={8}>
@@ -66,6 +69,26 @@ export default function YogaPage() {
             </Link>
           </VStack>
         </Flex>
+      </Container>
+      <Container marginTop={8} maxW={'container.2xl'}>
+        <Masonry>
+          <Box padding={4}>
+            <CardImage
+              height={500}
+              ref={ref1}
+              src='/eli-yoga-01.jpg'
+              width={500}
+            />
+          </Box>
+          <Box padding={4}>
+            <CardImage
+              height={700}
+              ref={ref2}
+              src='/eli-yoga-02.jpg'
+              width={400}
+            />
+          </Box>
+        </Masonry>
       </Container>
     </main>
   )

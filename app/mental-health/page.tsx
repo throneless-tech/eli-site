@@ -28,9 +28,9 @@ export default function MentalHealthPage() {
   return (
     <main>
       <Box className={styles.background}>
-        <ChakraImage
-          src='/background-mental-health.jpg'
-          bgSize={'cover'}
+        <Box
+          id={styles.mentalHealth}
+          className={styles.backgroundStatic}
         />
       </Box>
       <Center marginTop={8}>

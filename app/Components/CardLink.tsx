@@ -27,7 +27,7 @@ export default function CardImage() {
           alt='An image advertising to receive a text from Buddy.'
           display='inline-block'
           marginBottom={2}
-          width="100%"
+          width={400}
         />
       </Box>      
       <Text
