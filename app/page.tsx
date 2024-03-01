@@ -18,7 +18,7 @@ import {
 import styles from './styles/page.module.css';
 
 import CardAudio from './Components/CardAudio';
-import { CardImage } from './Components/CardImage';
+import CardImage from './Components/CardImage';
 import CardLink from './Components/CardLink';
 import CardWord from './Components/CardWord';
 import Nav from './Components/Nav';

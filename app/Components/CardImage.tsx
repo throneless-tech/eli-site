@@ -7,7 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-export const CardImage = React.forwardRef((props: any, ref: any) => (
+const CardImage = React.forwardRef((props: any, ref: any) => (
   <Box
     background={'#FFF'}
     borderRadius={8}
@@ -39,3 +39,5 @@ export const CardImage = React.forwardRef((props: any, ref: any) => (
     </Text>
   </Box>
 ));
+
+export default CardImage;

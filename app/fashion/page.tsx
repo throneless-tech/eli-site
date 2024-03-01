@@ -17,7 +17,7 @@ import {
 import styles from '../styles/page.module.css';
 
 // components
-import { CardImage } from '../Components/CardImage';
+import CardImage from '../Components/CardImage';
 import Nav from '../Components/Nav';
 
 // icons and images
