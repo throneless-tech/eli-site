@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import styles from './styles/page.module.css';
 
+//hooks
 import useWindowDimensions from './hooks/useWindowDimensions';
 
 import CardAudio from './Components/CardAudio';

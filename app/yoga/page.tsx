@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Masonry } from 'react-masonry'
 import { chivo } from '../styles/fonts';
 import {
@@ -16,6 +16,9 @@ import {
 } from '@chakra-ui/react';
 import styles from '../styles/page.module.css';
 
+// hooks
+import useWindowDimensions from '../hooks/useWindowDimensions';
+
 // components
 import CardImage from '../Components/CardImage';
 import Nav from '../Components/Nav';
@@ -27,6 +30,18 @@ import { SignatureIcon } from '../icons/Signature';
 export default function YogaPage() {
   const ref1 = React.createRef();
   const ref2 = React.createRef();
+  const { height, width } = useWindowDimensions();
+
+  // media query
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    if (width && width >= 768) {
+      setMatches(true);
+    } else {
+      setMatches(false);
+    }
+  }, []);
 
   return (
     <main>

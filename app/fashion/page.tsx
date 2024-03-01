@@ -16,6 +16,9 @@ import {
 } from '@chakra-ui/react';
 import styles from '../styles/page.module.css';
 
+// hooks
+import useWindowDimensions from '../hooks/useWindowDimensions';
+
 // components
 import CardImage from '../Components/CardImage';
 import Nav from '../Components/Nav';
@@ -31,21 +34,20 @@ export default function FashionPage() {
   const ref5 = React.createRef();
   const ref6 = React.createRef();
   const ref7 = React.createRef();
+  const { height, width } = useWindowDimensions();
 
   // media query
-  const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 768px)").matches
-  )
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
-    if (window) {
-      window
-        .matchMedia("(min-width: 768px)")
-        .addEventListener('change', e => setMatches(e.matches));
+    if (width && width >= 768) {
+      setMatches(true);
+    } else {
+      setMatches(false);
     }
   }, []);
-  
-  useEffect(() => { }, [matches])
+
+  useEffect(() => { }, [ matches])
 
   return (
     <main>
