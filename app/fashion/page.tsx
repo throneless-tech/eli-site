@@ -38,10 +38,14 @@ export default function FashionPage() {
   )
 
   useEffect(() => {
-    window
-      .matchMedia("(min-width: 768px)")
-      .addEventListener('change', e => setMatches(e.matches));
+    if (window) {
+      window
+        .matchMedia("(min-width: 768px)")
+        .addEventListener('change', e => setMatches(e.matches));
+    }
   }, []);
+  
+  useEffect(() => { }, [matches])
 
   return (
     <main>
