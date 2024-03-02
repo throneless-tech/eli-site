@@ -229,6 +229,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='12/5/2014'
                       height={600}
                       ref={ref}
                       src='/eli-fashion-02.jpg'
@@ -237,6 +238,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='12/19/2015'
                       height={300}
                       ref={ref}
                       src='/eli-bodhi-01.jpg'
@@ -245,6 +247,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='1/10/2010'
                       height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
@@ -253,6 +256,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardVideo
+                      date='1/2021'
                       height={480}
                       ref={ref}
                       src='/eli-vid-01.mp4'
@@ -261,6 +265,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='9/11/2016'
                       height={300}
                       ref={ref}
                       src='/eli-fashion-01.jpg'
@@ -269,6 +274,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='6/25/2016'
                       height={500}
                       ref={ref}
                       src='/eli-03.jpg'
@@ -277,6 +283,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardVideo
+                      date='1/2021'
                       height={480}
                       ref={ref}
                       src='/eli-vid-02.mp4'
@@ -285,6 +292,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='11/25/2015'
                       height={300}
                       ref={ref}
                       src='/eli-bodhi-02.jpg'
@@ -293,6 +301,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='2004'
                       height={500}
                       ref={ref}
                       src='/eli-04.jpg'
@@ -301,6 +310,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='7/31/2009'
                       height={500}
                       ref={ref}
                       src='/eli-05.jpg'
@@ -309,6 +319,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='11/29/14'
                       height={600}
                       ref={ref}
                       src='/eli-yoga-02.jpg'
@@ -317,6 +328,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='1/4/2009'
                       height={300}
                       ref={ref}
                       src='/eli-06.jpg'
@@ -324,7 +336,17 @@ export default function Home() {
                     />
                   </Box>
                   <Box padding={4}>
+                    <CardImage
+                      date='11/25/2015'
+                      height={400}
+                      ref={ref}
+                      src='/eli-bodhi-02.jpg'
+                      width={600}
+                    />
+                  </Box>
+                  <Box padding={4}>
                     <CardVideo
+                      date='1/2021'
                       height={480}
                       ref={ref}
                       src='/eli-vid-03.mp4'
@@ -333,6 +355,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='11/12/2018'
                       height={400}
                       ref={ref}
                       src='/eli-fashion-03.jpg'
@@ -341,6 +364,7 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardVideo
+                      date='1/2021'
                       height={480}
                       ref={ref}
                       src='/eli-vid-04.mp4'
@@ -349,10 +373,20 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      date='9/4/2015'
                       height={400}
                       ref={ref}
                       src='/eli-bodhi-03.jpg'
                       width={600}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      date='10/28/2019'
+                      height={350}
+                      ref={ref}
+                      src='/eli-01.jpg'
+                      width={300}
                     />
                   </Box>
                 </Masonry>
@@ -372,6 +406,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: -25, y: -850 }}>
                   <Box className={styles.card} height={500} width={300}>
                     <CardImage
+                      date='1/10/2010'
                       height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
@@ -383,6 +418,7 @@ export default function Home() {
                   <Box className={styles.card}>
                     <Box className={styles.card} height={300} width={300}>
                       <CardImage
+                        date='9/11/2016'
                         height={300}
                         ref={ref}
                         src='/eli-fashion-01.jpg'
@@ -394,6 +430,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 850, y: -950 }}>
                   <Box className={styles.card} height={300} width={300}>
                     <CardImage
+                      date='6/25/2016'
                       height={300}
                       ref={ref}
                       src='/eli-03.jpg'
@@ -404,6 +441,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 150, y: -6050 }}>
                   <Box className={styles.card} height={300} width={500}>
                     <CardImage
+                      date='12/19/2015'
                       height={300}
                       ref={ref}
                       src='/eli-bodhi-01.jpg'
@@ -414,6 +452,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 1450, y: -1750 }}>
                   <Box className={styles.card} height={400} width={300}>
                     <CardImage
+                      date='11/29/14'
                       height={400}
                       ref={ref}
                       src='/eli-yoga-02.jpg'
@@ -424,6 +463,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
                   <Box className={styles.card} height={480} width={300}>
                     <CardVideo
+                      date='1/2021'
                       height={480}
                       ref={ref}
                       src='/eli-vid-01.mp4'
@@ -434,6 +474,7 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 1250, y: -3250 }}>
                   <Box className={styles.card} height={300} width={300}>
                     <CardImage
+                      date='2004'
                       height={300}
                       ref={ref}
                       src='/eli-04.jpg'
@@ -444,9 +485,32 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
                   <Box className={styles.card} height={500} width={400}>
                     <CardImage
+                      date='7/31/2009'
                       height={500}
                       ref={ref}
                       src='/eli-05.jpg'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 250, y: -3050 }}>
+                  <Box className={styles.card} height={350} width={300}>
+                    <CardImage
+                      date='10/28/2019'
+                      height={350}
+                      ref={ref}
+                      src='/eli-01.jpg'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 200, y: -4050 }}>
+                  <Box className={styles.card} height={250} width={350}>
+                    <CardImage
+                      date='11/25/2015'
+                      height={250}
+                      ref={ref}
+                      src='/eli-bodhi-02.jpg'
                       width={'100%'}
                     />
                   </Box>
@@ -466,6 +530,16 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='10/28/2019'
+                height={250}
+                ref={ref}
+                src='/eli-01.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                date='12/5/2014'
                 height={600}
                 ref={ref}
                 src='/eli-fashion-02.jpg'
@@ -474,6 +548,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='12/19/2015'
                 height={250}
                 ref={ref}
                 src='/eli-bodhi-01.jpg'
@@ -482,6 +557,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='1/10/2010'
                 height={300}
                 ref={ref}
                 src='/eli-yoga-01.jpg'
@@ -490,6 +566,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='9/11/2016'
                 height={300}
                 ref={ref}
                 src='/eli-fashion-01.jpg'
@@ -498,6 +575,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='6/25/2016'
                 height={300}
                 ref={ref}
                 src='/eli-03.jpg'
@@ -506,6 +584,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='11/25/2015'
                 height={260}
                 ref={ref}
                 src='/eli-bodhi-02.jpg'
@@ -514,6 +593,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='2004'
                 height={400}
                 ref={ref}
                 src='/eli-04.jpg'
@@ -522,6 +602,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='7/31/2009'
                 height={500}
                 ref={ref}
                 src='/eli-05.jpg'
@@ -530,6 +611,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='11/29/14'
                 height={600}
                 ref={ref}
                 src='/eli-yoga-02.jpg'
@@ -538,6 +620,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='1/4/2009'
                 height={200}
                 ref={ref}
                 src='/eli-06.jpg'
@@ -546,6 +629,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='11/12/2018'
                 height={400}
                 ref={ref}
                 src='/eli-fashion-03.jpg'
@@ -554,6 +638,7 @@ export default function Home() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='9/4/2015'
                 height={240}
                 ref={ref}
                 src='/eli-bodhi-03.jpg'

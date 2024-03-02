@@ -62,7 +62,7 @@ export default function YogaPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Yoga for healing was essential to Eli. 
+            Yoga for healing was essential to Eli.
           </Text>
           <Nav selected="yoga" />
         </VStack>
@@ -86,24 +86,49 @@ export default function YogaPage() {
         </Flex>
       </Container>
       <Container marginTop={8} maxW={'container.2xl'}>
-        <Masonry>
-          <Box padding={4}>
-            <CardImage
-              height={500}
-              ref={ref1}
-              src='/eli-yoga-01.jpg'
-              width={500}
-            />
-          </Box>
-          <Box padding={4}>
-            <CardImage
-              height={700}
-              ref={ref2}
-              src='/eli-yoga-02.jpg'
-              width={400}
-            />
-          </Box>
-        </Masonry>
+        {matches ? (
+          <Masonry>
+            <Box padding={4}>
+              <CardImage
+                date='1/10/2010'
+                height={500}
+                ref={ref1}
+                src='/eli-yoga-01.jpg'
+                width={500}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                date='11/29/14'
+                height={700}
+                ref={ref2}
+                src='/eli-yoga-02.jpg'
+                width={400}
+              />
+            </Box>
+          </Masonry>
+        ) : (
+          <>
+            <Box padding={4}>
+              <CardImage
+                date='1/10/2010'
+                height={500}
+                ref={ref1}
+                src='/eli-yoga-01.jpg'
+                width={500}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                date='11/29/14'
+                height={700}
+                ref={ref2}
+                src='/eli-yoga-02.jpg'
+                width={400}
+              />
+            </Box>
+          </>
+        )}
       </Container>
     </main>
   )

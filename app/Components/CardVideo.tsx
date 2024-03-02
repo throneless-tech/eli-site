@@ -31,7 +31,7 @@ const CardImage = React.forwardRef((props: any, ref: any) => (
       padding={'4px'}
       textAlign={'center'}
     >
-      6/28/19
+      {props.date ? props.date : ''}
     </Text>
   </Box>
 ));

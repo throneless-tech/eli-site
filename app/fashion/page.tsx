@@ -47,7 +47,7 @@ export default function FashionPage() {
     }
   }, []);
 
-  useEffect(() => { }, [ matches])
+  useEffect(() => { }, [matches])
 
   return (
     <main>
@@ -78,6 +78,7 @@ export default function FashionPage() {
           <Masonry>
             <Box padding={4}>
               <CardImage
+                date='9/11/2016'
                 height={300}
                 ref={ref1}
                 src='/eli-fashion-01.jpg'
@@ -86,6 +87,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='12/5/2014'
                 height={500}
                 ref={ref2}
                 src='/eli-fashion-02.jpg'
@@ -94,6 +96,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='11/12/2018'
                 height={300}
                 src='/eli-fashion-03.jpg'
                 ref={ref3}
@@ -102,6 +105,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='10/29/2016'
                 height={300}
                 src='/eli-fashion-04.jpg'
                 ref={ref4}
@@ -110,6 +114,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='6/8/2009'
                 height={500}
                 src='/eli-fashion-05.jpg'
                 ref={ref5}
@@ -118,6 +123,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='6/7/2009'
                 height={300}
                 src='/eli-fashion-06.jpg'
                 ref={ref6}
@@ -126,10 +132,20 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='3/13/2009'
                 height={600}
                 src='/eli-fashion-07.jpg'
                 ref={ref7}
                 width={400}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                date='2009'
+                height={300}
+                src='/eli-02.jpg'
+                ref={ref7}
+                width={300}
               />
             </Box>
           </Masonry>
@@ -137,6 +153,7 @@ export default function FashionPage() {
           <>
             <Box padding={4}>
               <CardImage
+                date='9/11/2016'
                 height={300}
                 ref={ref1}
                 src='/eli-fashion-01.jpg'
@@ -145,6 +162,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='12/5/2014'
                 height={500}
                 ref={ref2}
                 src='/eli-fashion-02.jpg'
@@ -153,6 +171,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='11/12/2018'
                 height={300}
                 src='/eli-fashion-03.jpg'
                 ref={ref3}
@@ -161,6 +180,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='10/29/2016'
                 height={300}
                 src='/eli-fashion-04.jpg'
                 ref={ref4}
@@ -169,6 +189,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='6/8/2009'
                 height={500}
                 src='/eli-fashion-05.jpg'
                 ref={ref5}
@@ -177,6 +198,7 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='6/7/2009'
                 height={300}
                 src='/eli-fashion-06.jpg'
                 ref={ref6}
@@ -185,10 +207,20 @@ export default function FashionPage() {
             </Box>
             <Box padding={4}>
               <CardImage
+                date='3/13/2009'
                 height={600}
                 src='/eli-fashion-07.jpg'
                 ref={ref7}
                 width={400}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                date='2009'
+                height={300}
+                src='/eli-02.jpg'
+                ref={ref7}
+                width={300}
               />
             </Box>
           </>
