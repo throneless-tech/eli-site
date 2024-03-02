@@ -44,7 +44,7 @@ export default function ComedyPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Mental health was essential to Eli.
+            Comedy was essential to Eli.
           </Text>
           <Nav selected="comedy" />
         </VStack>
