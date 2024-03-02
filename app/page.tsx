@@ -22,6 +22,7 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 
 import CardAudio from './Components/CardAudio';
 import CardImage from './Components/CardImage';
+import CardVideo from './Components/CardVideo';
 import CardLink from './Components/CardLink';
 import CardWord from './Components/CardWord';
 import Nav from './Components/Nav';
@@ -120,7 +121,7 @@ export default function Home() {
               width={130}
               zIndex={5}
             >
-              Collage
+              {collage ? 'Collage' : 'Organize'}
             </Text>
           </Box>
         ) : null}
@@ -228,9 +229,33 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      height={600}
+                      ref={ref}
+                      src='/eli-fashion-02.jpg'
+                      width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
                       height={300}
                       ref={ref}
+                      src='/eli-bodhi-01.jpg'
+                      width={500}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={500}
+                      ref={ref}
                       src='/eli-yoga-01.jpg'
+                      width={500}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardVideo
+                      height={480}
+                      ref={ref}
+                      src='/eli-vid-01.mp4'
                       width={300}
                     />
                   </Box>
@@ -244,10 +269,90 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
-                      height={300}
+                      height={500}
                       ref={ref}
                       src='/eli-03.jpg'
+                      width={500}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardVideo
+                      height={480}
+                      ref={ref}
+                      src='/eli-vid-02.mp4'
                       width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={300}
+                      ref={ref}
+                      src='/eli-bodhi-02.jpg'
+                      width={500}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={500}
+                      ref={ref}
+                      src='/eli-04.jpg'
+                      width={500}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={500}
+                      ref={ref}
+                      src='/eli-05.jpg'
+                      width={400}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={600}
+                      ref={ref}
+                      src='/eli-yoga-02.jpg'
+                      width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={300}
+                      ref={ref}
+                      src='/eli-06.jpg'
+                      width={600}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardVideo
+                      height={480}
+                      ref={ref}
+                      src='/eli-vid-03.mp4'
+                      width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={400}
+                      ref={ref}
+                      src='/eli-fashion-03.jpg'
+                      width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardVideo
+                      height={480}
+                      ref={ref}
+                      src='/eli-vid-04.mp4'
+                      width={300}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardImage
+                      height={400}
+                      ref={ref}
+                      src='/eli-bodhi-03.jpg'
+                      width={600}
                     />
                   </Box>
                 </Masonry>
