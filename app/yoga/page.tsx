@@ -13,6 +13,7 @@ import {
   VStack,
   Heading,
   VisuallyHidden,
+  HStack,
 } from '@chakra-ui/react';
 import styles from '../styles/page.module.css';
 
@@ -72,7 +73,7 @@ export default function YogaPage() {
           <Box as='h2' textStyle='h2' className={chivo.className}>
             Check out these resources
           </Box>
-          <VStack align='flex-start' className={chivo.className} fontSize={24} width={300}>
+          <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 400]}>
             <Link href='https://www.patriciawaldenyoga.com/'>
               Patricia Walden Yoga
             </Link>
@@ -82,6 +83,25 @@ export default function YogaPage() {
             <Link href='http://corawen.com/'>
               Cora Wen
             </Link>
+            <HStack>
+              <Link href='https://yogajellies.com/product/yogajellies-one-pair/'>Eli
+              </Link>
+              <Link href='https://www.gaiam.com/collections/yoga-props-accessories'>
+                loved
+              </Link>
+              <Link href='https://www.yogadirect.com/yoga-direct-premium-printed-1-4-inch-alignment-yoga-mat.html'>
+                all
+              </Link>
+              <Link href='http://web.archive.org/web/20061101140528/http://www.judithlasater.com/about/books/props.html'>
+                the
+              </Link>
+              <Link href='https://prapattiprops.com/'>
+                props
+              </Link>
+              <Text>
+                !
+              </Text>
+            </HStack>
           </VStack>
         </Flex>
       </Container>

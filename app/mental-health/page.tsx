@@ -49,17 +49,23 @@ export default function MentalHealthPage() {
           <Nav selected="mental-health" />
         </VStack>
       </Center>
-      <Container maxW={'2xl'} marginTop={12}>
+      <Container maxW={'container.lg'} marginTop={12}>
         <Flex direction={['column', 'row']} alignItems='center' gap='6'>
           <Box as='h2' textStyle='h2' className={chivo.className}>
             Check out these resources
           </Box>
-          <VStack align='flex-start' className={chivo.className} fontSize={24}>
+          <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 550]}>
+            <Text>
+              “Bessel Van der kolk is a legend.” - Eli
+            </Text>
             <Link href='https://www.besselvanderkolk.com/resources/the-body-keeps-the-score'>
               The Body Keeps the Score
             </Link>
             <Link href='https://www.enneagraminstitute.com/the-traditional-enneagram'>
               Traditional Enneagram
+            </Link>
+            <Link href='https://catdogs.org/'>
+              Get yourself a Mr. Bodhi
             </Link>
           </VStack>
         </Flex>

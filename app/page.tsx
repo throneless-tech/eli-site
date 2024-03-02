@@ -246,21 +246,27 @@ export default function Home() {
                     />
                   </Box>
                   <Box padding={4}>
+                    <CardVideo
+                      date='1/2021'
+                      height={580}
+                      ref={ref}
+                      src='/eli-vid-01.mp4'
+                      width={360}
+                    />
+                  </Box>
+                  <Box padding={4}>
+                    <CardAudio
+                      title={`Mom's Podcast`}
+                      src='/eli-moms-podcast.m4a'
+                    />
+                  </Box>
+                  <Box padding={4}>
                     <CardImage
                       date='1/10/2010'
                       height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
                       width={500}
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardVideo
-                      date='1/2021'
-                      height={480}
-                      ref={ref}
-                      src='/eli-vid-01.mp4'
-                      width={300}
                     />
                   </Box>
                   <Box padding={4}>
@@ -515,6 +521,14 @@ export default function Home() {
                     />
                   </Box>
                 </Draggable>
+                <Draggable defaultPosition={{ x: 1320, y: -4320 }}>
+                  <Box className={styles.card} height={300} width={500}>
+                    <CardAudio
+                      title={`Mom's Podcast`}
+                      src='/eli-moms-podcast.m4a'
+                    />
+                  </Box>
+                </Draggable>
               </>
             )}
           </>
@@ -526,6 +540,12 @@ export default function Home() {
                 ref={ref}
                 src='/eli-fam.jpg'
                 width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardAudio
+                title={`Mom's Podcast`}
+                src='/eli-moms-podcast.m4a'
               />
             </Box>
             <Box padding={4}>

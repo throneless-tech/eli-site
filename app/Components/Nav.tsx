@@ -24,6 +24,7 @@ export default function Nav(props: any) {
         fontSize={24}
         href='/yoga'
         textAlign="center"
+        width={[326, 'unset']}
         _hover={{
           background: "red.900",
         }}
@@ -38,6 +39,7 @@ export default function Nav(props: any) {
         fontSize={24}
         href='/mental-health'
         textAlign="center"
+        width={[326, 'unset']}
         _hover={{
           background: "red.900",
         }}
@@ -52,6 +54,7 @@ export default function Nav(props: any) {
         fontSize={24}
         href='/comedy'
         textAlign="center"
+        width={[326, 'unset']}
         _hover={{
           background: "red.900",
         }}
@@ -66,6 +69,7 @@ export default function Nav(props: any) {
         fontSize={24}
         href='/fashion'
         textAlign="center"
+        width={[326, 'unset']}
         _hover={{
           background: "red.900",
         }}
