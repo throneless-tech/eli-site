@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <main>
-      <Box>
+      <Box overflowX={'hidden'} overflowY={collage ? 'hidden' : 'scroll'}>
         <Box className={styles.background}>
           <Box
             id={styles.p1}
@@ -178,7 +178,7 @@ export default function Home() {
                     Mental Health
                   </Button>
                 </Draggable>
-                <Draggable defaultPosition={{ x: -625, y: -425 }}>
+                <Draggable defaultPosition={{ x: -625, y: -475 }}>
                   <Button
                     as="a"
                     background={"red.500"}
@@ -360,41 +360,94 @@ export default function Home() {
             ) : (
               <>
                 <Draggable defaultPosition={{ x: 25, y: 25 }}>
-                  <Box className={styles.card}>
+                  <Box className={styles.card} height={300} width={500}>
                     <CardImage
                       height={300}
                       ref={ref}
                       src='/eli-fam.jpg'
-                    // width={500}
+                      width={"100%"}
                     />
                   </Box>
                 </Draggable>
                 <Draggable defaultPosition={{ x: -25, y: -850 }}>
-                  <Box className={styles.card}>
+                  <Box className={styles.card} height={500} width={300}>
                     <CardImage
-                      height={300}
+                      height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
+                      width={"100%"}
                     />
                   </Box>
                 </Draggable>
-                <Draggable defaultPosition={{ x: 500, y: -450 }}>
+                <Draggable defaultPosition={{ x: 500, y: -850 }}>
                   <Box className={styles.card}>
-                    <Box className={styles.card}>
+                    <Box className={styles.card} height={300} width={300}>
                       <CardImage
                         height={300}
                         ref={ref}
                         src='/eli-fashion-01.jpg'
+                        width={"100%"}
                       />
                     </Box>
                   </Box>
                 </Draggable>
-                <Draggable defaultPosition={{ x: 1250, y: -950 }}>
-                  <Box className={styles.card}>
+                <Draggable defaultPosition={{ x: 850, y: -950 }}>
+                  <Box className={styles.card} height={300} width={300}>
                     <CardImage
                       height={300}
                       ref={ref}
                       src='/eli-03.jpg'
+                      width={"100%"}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 150, y: -6050 }}>
+                  <Box className={styles.card} height={300} width={500}>
+                    <CardImage
+                      height={300}
+                      ref={ref}
+                      src='/eli-bodhi-01.jpg'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 1450, y: -1750 }}>
+                  <Box className={styles.card} height={400} width={300}>
+                    <CardImage
+                      height={400}
+                      ref={ref}
+                      src='/eli-yoga-02.jpg'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
+                  <Box className={styles.card} height={480} width={300}>
+                    <CardVideo
+                      height={480}
+                      ref={ref}
+                      src='/eli-vid-01.mp4'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 1250, y: -3250 }}>
+                  <Box className={styles.card} height={300} width={300}>
+                    <CardImage
+                      height={300}
+                      ref={ref}
+                      src='/eli-04.jpg'
+                      width={'100%'}
+                    />
+                  </Box>
+                </Draggable>
+                <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
+                  <Box className={styles.card} height={500} width={400}>
+                    <CardImage
+                      height={500}
+                      ref={ref}
+                      src='/eli-05.jpg'
+                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -405,10 +458,26 @@ export default function Home() {
           <Container maxW={'container.2xl'}>
             <Box padding={4}>
               <CardImage
-                height={300}
+                height={250}
                 ref={ref}
                 src='/eli-fam.jpg'
-                width={500}
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={600}
+                ref={ref}
+                src='/eli-fashion-02.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={250}
+                ref={ref}
+                src='/eli-bodhi-01.jpg'
+                width={300}
               />
             </Box>
             <Box padding={4}>
@@ -416,6 +485,7 @@ export default function Home() {
                 height={300}
                 ref={ref}
                 src='/eli-yoga-01.jpg'
+                width={300}
               />
             </Box>
             <Box padding={4}>
@@ -423,6 +493,7 @@ export default function Home() {
                 height={300}
                 ref={ref}
                 src='/eli-fashion-01.jpg'
+                width={300}
               />
             </Box>
             <Box padding={4}>
@@ -430,6 +501,63 @@ export default function Home() {
                 height={300}
                 ref={ref}
                 src='/eli-03.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={260}
+                ref={ref}
+                src='/eli-bodhi-02.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={400}
+                ref={ref}
+                src='/eli-04.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={500}
+                ref={ref}
+                src='/eli-05.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={600}
+                ref={ref}
+                src='/eli-yoga-02.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={200}
+                ref={ref}
+                src='/eli-06.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={400}
+                ref={ref}
+                src='/eli-fashion-03.jpg'
+                width={300}
+              />
+            </Box>
+            <Box padding={4}>
+              <CardImage
+                height={240}
+                ref={ref}
+                src='/eli-bodhi-03.jpg'
+                width={300}
               />
             </Box>
           </Container>
