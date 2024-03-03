@@ -68,7 +68,7 @@ export default function FashionPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Fashion was essential to Eli.
+            Fashun
           </Text>
           <Nav selected="fashion" />
         </VStack>

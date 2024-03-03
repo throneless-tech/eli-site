@@ -44,7 +44,7 @@ export default function ComedyPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Comedy was essential to Eli.
+            Comedy
           </Text>
           <Nav selected="comedy" />
         </VStack>
@@ -52,7 +52,7 @@ export default function ComedyPage() {
       <Container maxW={'2xl'} marginTop={12}>
         <Flex direction={['column', 'row']} alignItems='center' gap='6'>
           <Box as='h2' textStyle='h2' className={chivo.className}>
-            Check out these resources
+            Some favorites:
           </Box>
           <VStack align='flex-start' className={chivo.className} fontSize={24}>
             <Link href='https://www.youtube.com/c/EndlessHoneymoon'>

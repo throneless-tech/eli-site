@@ -71,17 +71,17 @@ export default function YogaPage() {
       <Container marginTop={12}>
         <Flex direction={['column', 'row']} alignItems='center' gap='2'>
           <Box as='h2' textStyle='h2' className={chivo.className}>
-            Check out these resources
+            Some favorites:
           </Box>
           <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 400]}>
+            <Link href='https://bksiyengar.com/modules/IYoga/iyoga.htm'>
+              Iyengar Yoga
+            </Link>
             <Link href='https://www.patriciawaldenyoga.com/'>
-              Patricia Walden Yoga
+              Patricia Walden
             </Link>
-            <Link href='https://iynaus.org/'>
-              Iynaus
-            </Link>
-            <Link href='http://corawen.com/'>
-              Cora Wen
+            <Link href='https://www.corayoga.com/'>
+              Cora Wen: Yoga Bloom
             </Link>
             <HStack>
               <Link href='https://yogajellies.com/product/yogajellies-one-pair/'>Eli

@@ -44,7 +44,7 @@ export default function MentalHealthPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Mental health was essential to Eli.
+            “Bessel Van der kolk is a legend.” - Eli
           </Text>
           <Nav selected="mental-health" />
         </VStack>
@@ -55,9 +55,6 @@ export default function MentalHealthPage() {
             Check out these resources
           </Box>
           <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 550]}>
-            <Text>
-              “Bessel Van der kolk is a legend.” - Eli
-            </Text>
             <Link href='https://www.besselvanderkolk.com/resources/the-body-keeps-the-score'>
               The Body Keeps the Score
             </Link>
