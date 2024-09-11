@@ -11,6 +11,7 @@ import {
   Container,
   Heading,
   Link,
+  ResponsiveValue,
   Text,
   VisuallyHidden,
   VStack,
@@ -128,9 +129,27 @@ export default function Home() {
 
   // check if images should be randomized or form a collage
   const [collage, setCollage] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
 
   const handleCollage = () => {
-    return setCollage(!collage)
+    setClickCount(clickCount => clickCount + 1);
+    return setCollage(!collage);
+  }
+
+  const positionLeft = () => {
+    if (clickCount >= 1) {
+      return randomWidth() as ResponsiveValue<number>;
+    } else {
+      return 0;
+    }
+  }
+
+  const positionTop = () => {
+    if (clickCount >= 1) {
+      return randomHeight() as ResponsiveValue<number>;
+    } else {
+      return 0;
+    }
   }
 
   // media query
@@ -145,7 +164,7 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => { }, [collage, matches])
+  useEffect(() => { }, [clickCount, collage, matches])
 
   return (
     <main>
@@ -557,13 +576,13 @@ export default function Home() {
             <>
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refImage001}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 500}
               >
                 <CardImage
@@ -573,13 +592,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 500}
-                left={0}
                 position='absolute'
                 ref={refImage015}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -590,13 +609,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 400}
-                left={0}
                 position='absolute'
                 ref={refImage005}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 400}
               >
                 <CardImage
@@ -606,13 +625,13 @@ export default function Home() {
                 />
               </Box>
               {/* <Box
-                left={0}
                 position='absolute'
                 ref={refImage007}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
               >
                 <CardVideo
                   date='1/2021'
@@ -623,13 +642,13 @@ export default function Home() {
               </Box> */}
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refAudio001}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 500}
               >
                 <CardAudio
@@ -639,13 +658,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 500}
-                left={0}
                 position='absolute'
                 ref={refImage002}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -656,13 +675,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refImage003}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -673,13 +692,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refImage004}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -689,13 +708,13 @@ export default function Home() {
                 />
               </Box>
               {/* <Box
-                left={0}
                 position='absolute'
                 ref={refVideo002}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
               >
                 <CardVideo
                   date='1/2021'
@@ -706,13 +725,13 @@ export default function Home() {
               </Box> */}
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refImage014}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 350}
               >
                 <CardImage
@@ -723,13 +742,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 300}
-                left={0}
                 position='absolute'
                 ref={refImage008}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -740,13 +759,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 500}
-                left={0}
                 position='absolute'
                 ref={refImage009}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 400}
               >
                 <CardImage
@@ -757,13 +776,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 400}
-                left={0}
                 position='absolute'
                 ref={refImage006}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
@@ -774,13 +793,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 400}
-                left={0}
                 position='absolute'
                 ref={refImage016}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 400}
               >
                 <CardImage
@@ -791,13 +810,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 250}
-                left={0}
                 position='absolute'
                 ref={refImage011}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 350}
               >
                 <CardImage
@@ -807,13 +826,13 @@ export default function Home() {
                 />
               </Box>
               {/* <Box
-                left={0}
                 position='absolute'
                 ref={refVideo003}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
               >
                 <CardVideo
                   date='1/2021'
@@ -824,14 +843,14 @@ export default function Home() {
               </Box> */}
               <Box
                 height={collage ? 'inherit' : 450}
-                left={0}
                 position='absolute'
                 padding={4}
                 ref={refImage012}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 450}
               >
                 <CardImage
@@ -841,13 +860,13 @@ export default function Home() {
                 />
               </Box>
               {/* <Box
-                left={0}
                 position='absolute'
                 ref={refVideo004}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
               >
                 <CardVideo
                   date='1/2021'
@@ -858,14 +877,14 @@ export default function Home() {
               </Box> */}
               <Box
                 height={collage ? 'inherit' : 450}
-                left={0}
                 position='absolute'
                 ref={refImage013}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
-                width={!matches ? '100%' : 550}
+                width={!matches ? '100%' : 400}
               >
                 <CardImage
                   organized
@@ -875,13 +894,13 @@ export default function Home() {
               </Box>
               <Box
                 height={collage ? 'inherit' : 350}
-                left={0}
                 position='absolute'
                 ref={refImage010}
                 sx={{
                   cursor: 'move',
+                  left: positionLeft,
+                  top: positionTop,
                 }}
-                top={0}
                 width={!matches ? '100%' : 300}
               >
                 <CardImage
