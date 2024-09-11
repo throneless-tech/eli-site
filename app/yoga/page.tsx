@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Masonry } from 'react-masonry'
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { chivo } from '../styles/fonts';
 import {
   Box,

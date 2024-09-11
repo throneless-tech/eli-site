@@ -576,9 +576,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage015}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -593,9 +593,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage005}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 400}
               >
@@ -626,9 +626,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refAudio001}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 500}
               >
@@ -642,9 +642,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage002}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -659,9 +659,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage003}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -676,9 +676,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage004}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -709,9 +709,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage014}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 350}
               >
@@ -726,9 +726,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage008}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -743,9 +743,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage009}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 400}
               >
@@ -760,9 +760,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage006}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
@@ -777,9 +777,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage016}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 400}
               >
@@ -794,9 +794,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage011}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 350}
               >
@@ -828,9 +828,9 @@ export default function Home() {
                 position='absolute'
                 padding={4}
                 ref={refImage012}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 450}
               >
@@ -861,9 +861,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage013}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 550}
               >
@@ -878,9 +878,9 @@ export default function Home() {
                 left={0}
                 position='absolute'
                 ref={refImage010}
-                  sx={{
-                    cursor: 'move',
-                  }}
+                sx={{
+                  cursor: 'move',
+                }}
                 top={0}
                 width={!matches ? '100%' : 300}
               >
