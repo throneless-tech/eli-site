@@ -1,9 +1,9 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { chivo } from './styles/fonts';
-import Draggable from 'react-draggable';
-import { Masonry } from 'react-masonry';
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { useDraggable } from '@neodrag/react';
 import {
   Box,
   Button,
@@ -28,11 +28,106 @@ import CardWord from './Components/CardWord';
 import Nav from './Components/Nav';
 
 export default function Home() {
-  const ref = React.createRef();
   const { height, width } = useWindowDimensions();
 
+  // random numbers generator for positioning
+  function randomHeight() {
+    if (height) {
+      return Math.floor(Math.random() * height + 1);
+    } else {
+      return Math.floor(Math.random() * 500 + 1);
+    }
+  }
+
+  function randomWidth() {
+    if (width) {
+      return Math.floor(Math.random() * width + 1);
+    } else {
+      return Math.floor(Math.random() * 500 + 1);
+    }
+  }
+
+  // draggable items
+  const draggableComedy = useRef(null);
+  useDraggable(draggableComedy, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const draggableFashion = useRef(null);
+  useDraggable(draggableFashion, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const draggableHealth = useRef(null);
+  useDraggable(draggableHealth, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const draggableYoga = useRef(null);
+  useDraggable(draggableYoga, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage001 = useRef(null);
+  useDraggable(refImage001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const { isDragging, dragState } = useDraggable(draggableFashion, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage002 = useRef(null);
+  useDraggable(refImage002, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage003 = useRef(null);
+  useDraggable(refImage003, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage004 = useRef(null);
+  useDraggable(refImage004, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage005 = useRef(null);
+  useDraggable(refImage005, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage006 = useRef(null);
+  useDraggable(refImage006, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage007 = useRef(null);
+  useDraggable(refImage007, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage008 = useRef(null);
+  useDraggable(refImage008, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage009 = useRef(null);
+  useDraggable(refImage009, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage010 = useRef(null);
+  useDraggable(refImage010, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage011 = useRef(null);
+  useDraggable(refImage011, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage012 = useRef(null);
+  useDraggable(refImage012, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage013 = useRef(null);
+  useDraggable(refImage013, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage014 = useRef(null);
+  useDraggable(refImage014, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage015 = useRef(null);
+  useDraggable(refImage015, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refImage016 = useRef(null);
+  useDraggable(refImage016, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refVideo001 = useRef(null);
+  useDraggable(refVideo001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refVideo002 = useRef(null);
+  useDraggable(refVideo002, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refVideo003 = useRef(null);
+  useDraggable(refVideo003, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refVideo004 = useRef(null);
+  useDraggable(refVideo004, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+  const refAudio001 = useRef(null);
+  useDraggable(refAudio001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+
+
   // check if images should be randomized or form a collage
-  const [collage, setCollage] = useState(false);
+  const [collage, setCollage] = useState(true);
 
   const handleCollage = () => {
     return setCollage(!collage)
@@ -46,7 +141,7 @@ export default function Home() {
       setMatches(true);
     } else {
       setMatches(false);
-      setCollage(true);
+      setCollage(false);
     }
   }, []);
 
@@ -54,7 +149,12 @@ export default function Home() {
 
   return (
     <main>
-      <Box overflowX={'hidden'} overflowY={collage ? 'hidden' : 'scroll'}>
+      <Box
+        className='grid'
+        height={collage ? '100vh' : 'inherit'}
+        overflowX={'hidden'}
+        position='relative'
+      >
         <Box className={styles.background}>
           <Box
             id={styles.p1}
@@ -122,7 +222,7 @@ export default function Home() {
               width={130}
               zIndex={5}
             >
-              {collage ? 'Collage' : 'Organize'}
+              {collage ? 'Organize' : 'Collage'}
             </Text>
           </Box>
         ) : null}
@@ -145,464 +245,654 @@ export default function Home() {
             <Text className={chivo.className} fontSize={20} fontWeight={600} textAlign={'center'} marginTop={8} width={[300, 760]}>
               lived in Cape Cod, New York and California. He broke every rule he could and was notoriously late for everything, always with an iced coffee and at least two other beverages in hand. He loved yoga, cloudy days, swimming in all bodies of water, clothing (ranging from thrift stores to designer wear), and travel, as long as it didn&#39;t include too many planned activities.
             </Text>
-            {collage ? (<Nav />) : (
+            {!collage ? (<Nav />) : (
               <>
-                <Draggable defaultPosition={{ x: 124, y: 124 }}>
-                  <Button
-                    as="a"
-                    background={"red.500"}
-                    className={`${styles.nav} ${chivo.className}`}
-                    fontWeight="bold"
-                    fontSize={24}
-                    href='/yoga'
-                    textAlign="center"
-                    _hover={{
-                      background: "red.900",
-                    }}
-                  >
-                    Yoga
-                  </Button>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 225, y: 225 }}>
-                  <Button
-                    as="a"
-                    background={"red.500"}
-                    className={`${styles.nav} ${chivo.className}`}
-                    fontWeight="bold"
-                    fontSize={24}
-                    href='/mental-health'
-                    textAlign="center"
-                    _hover={{
-                      background: "red.900",
-                    }}
-                  >
-                    Mental Health
-                  </Button>
-                </Draggable>
-                <Draggable defaultPosition={{ x: -625, y: -475 }}>
-                  <Button
-                    as="a"
-                    background={"red.500"}
-                    className={`${styles.nav} ${chivo.className}`}
-                    fontWeight="bold"
-                    fontSize={24}
-                    href='/comedy'
-                    textAlign="center"
-                    _hover={{
-                      background: "red.900",
-                    }}
-                  >
-                    Comedy
-                  </Button>
-                </Draggable>
-                <Draggable defaultPosition={{ x: -250, y: -25 }}>
-                  <Button
-                    as="a"
-                    background={"red.500"}
-                    className={`${styles.nav} ${chivo.className}`}
-                    fontWeight="bold"
-                    fontSize={24}
-                    href='/fashion'
-                    textAlign="center"
-                    _hover={{
-                      background: "red.900",
-                    }}
-                  >
-                    Fashion
-                  </Button>
-                </Draggable>
+                <Button
+                  as="a"
+                  background={"red.500"}
+                  className={`${styles.nav} ${chivo.className}`}
+                  fontWeight="bold"
+                  fontSize={24}
+                  href='/yoga'
+                  ref={draggableYoga}
+                  textAlign="center"
+                  _hover={{
+                    background: "red.900",
+                  }}
+                >
+                  Yoga
+                </Button>
+                <Button
+                  as="a"
+                  background={"red.500"}
+                  className={`${styles.nav} ${chivo.className}`}
+                  fontWeight="bold"
+                  fontSize={24}
+                  href='/mental-health'
+                  ref={draggableHealth}
+                  textAlign="center"
+                  _hover={{
+                    background: "red.900",
+                  }}
+                >
+                  Mental Health
+                </Button>
+                <Button
+                  as="a"
+                  background={"red.500"}
+                  className={`${styles.nav} ${chivo.className}`}
+                  fontWeight="bold"
+                  fontSize={24}
+                  href='/comedy'
+                  ref={draggableComedy}
+                  textAlign="center"
+                  _hover={{
+                    background: "red.900",
+                  }}
+                >
+                  Comedy
+                </Button>
+                <Button
+                  as="a"
+                  background={"red.500"}
+                  className={`${styles.nav} ${chivo.className}`}
+                  fontWeight="bold"
+                  fontSize={24}
+                  href='/fashion'
+                  ref={draggableFashion}
+                  textAlign="center"
+                  _hover={{
+                    background: "red.900",
+                  }}
+                >
+                  Fashion
+                </Button>
               </>
             )}
           </VStack>
         </Center>
-        {matches ? (
-          <>
-            {collage ? (
-              <Container maxW={'container.2xl'}>
-                <Masonry>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      ref={ref}
-                      src='/eli-fam.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='12/5/2014'
-                      ref={ref}
-                      src='/eli-fashion-02.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='12/19/2015'
-                      ref={ref}
-                      src='/eli-bodhi-01.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardVideo
-                      date='1/2021'
-                      height={580}
-                      ref={ref}
-                      src='/eli-vid-01.mp4'
-                      width={360}
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardAudio
-                      title={`Mom's Podcast`}
-                      src='/eli-moms-podcast.m4a'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='1/10/2010'
-                      ref={ref}
-                      src='/eli-yoga-01.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='9/11/2016'
-                      ref={ref}
-                      src='/eli-fashion-01.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='6/25/2016'
-                      ref={ref}
-                      src='/eli-03.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardVideo
-                      date='1/2021'
-                      height={480}
-                      ref={ref}
-                      src='/eli-vid-02.mp4'
-                      width={300}
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='11/25/2015'
-                      ref={ref}
-                      src='/eli-bodhi-02.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='2004'
-                      ref={ref}
-                      src='/eli-04.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='7/31/2009'
-                      ref={ref}
-                      src='/eli-05.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='11/29/14'
-                      ref={ref}
-                      src='/eli-yoga-02.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='1/4/2009'
-                      ref={ref}
-                      src='/eli-06.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='11/25/2015'
-                      ref={ref}
-                      src='/eli-bodhi-02.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardVideo
-                      date='1/2021'
-                      height={480}
-                      ref={ref}
-                      src='/eli-vid-03.mp4'
-                      width={300}
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='11/12/2018'
-                      ref={ref}
-                      src='/eli-fashion-03.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardVideo
-                      date='1/2021'
-                      height={480}
-                      ref={ref}
-                      src='/eli-vid-04.mp4'
-                      width={300}
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='9/4/2015'
-                      ref={ref}
-                      src='/eli-bodhi-03.jpg'
-                    />
-                  </Box>
-                  <Box padding={4}>
-                    <CardImage
-                      organized
-                      date='10/28/2019'
-                      ref={ref}
-                      src='/eli-01.jpg'
-                    />
-                  </Box>
-                </Masonry>
-              </Container>
-            ) : (
-              <>
-                <Draggable defaultPosition={{ x: 25, y: 25 }}>
-                  <Box className={styles.card} height={300} width={500}>
-                    <CardImage
-                      ref={ref}
-                      src='/eli-fam.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: -25, y: -850 }}>
-                  <Box className={styles.card} height={500} width={300}>
-                    <CardImage
-                      date='1/10/2010'
-                      ref={ref}
-                      src='/eli-yoga-01.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 500, y: -850 }}>
-                  <Box className={styles.card}>
-                    <Box className={styles.card} height={300} width={300}>
-                      <CardImage
-                        date='9/11/2016'
-                        ref={ref}
-                        src='/eli-fashion-01.jpg'
-                      />
-                    </Box>
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 850, y: -950 }}>
-                  <Box className={styles.card} height={300} width={300}>
-                    <CardImage
-                      date='6/25/2016'
-                      ref={ref}
-                      src='/eli-03.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 150, y: -6050 }}>
-                  <Box className={styles.card} height={300} width={500}>
-                    <CardImage
-                      date='12/19/2015'
-                      ref={ref}
-                      src='/eli-bodhi-01.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 1450, y: -1750 }}>
-                  <Box className={styles.card} height={400} width={300}>
-                    <CardImage
-                      date='11/29/14'
-                      ref={ref}
-                      src='/eli-yoga-02.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
-                  <Box className={styles.card} height={480} width={300}>
-                    <CardVideo
-                      date='1/2021'
-                      ref={ref}
-                      src='/eli-vid-01.mp4'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 1250, y: -3250 }}>
-                  <Box className={styles.card} height={300} width={300}>
-                    <CardImage
-                      date='2004'
-                      ref={ref}
-                      src='/eli-04.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 1050, y: -2750 }}>
-                  <Box className={styles.card} height={500} width={400}>
-                    <CardImage
-                      date='7/31/2009'
-                      ref={ref}
-                      src='/eli-05.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 250, y: -3050 }}>
-                  <Box className={styles.card} height={350} width={300}>
-                    <CardImage
-                      date='10/28/2019'
-                      ref={ref}
-                      src='/eli-01.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 200, y: -4050 }}>
-                  <Box className={styles.card} height={250} width={350}>
-                    <CardImage
-                      date='11/25/2015'
-                      ref={ref}
-                      src='/eli-bodhi-02.jpg'
-                    />
-                  </Box>
-                </Draggable>
-                <Draggable defaultPosition={{ x: 1320, y: -4320 }}>
-                  <Box className={styles.card} height={300} width={500}>
-                    <CardAudio
-                      title={`Mom's Podcast`}
-                      src='/eli-moms-podcast.m4a'
-                    />
-                  </Box>
-                </Draggable>
-              </>
-            )}
-          </>
-        ) : (
-          <Container maxW={'container.2xl'}>
-            <Box padding={4}>
-              <CardImage
-                ref={ref}
-                src='/eli-fam.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardAudio
-                title={`Mom's Podcast`}
-                src='/eli-moms-podcast.m4a'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='10/28/2019'
-                ref={ref}
-                src='/eli-01.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='12/5/2014'
-                ref={ref}
-                src='/eli-fashion-02.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='12/19/2015'
-                ref={ref}
-                src='/eli-bodhi-01.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='1/10/2010'
-                ref={ref}
-                src='/eli-yoga-01.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='9/11/2016'
-                ref={ref}
-                src='/eli-fashion-01.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='6/25/2016'
-                ref={ref}
-                src='/eli-03.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='11/25/2015'
-                ref={ref}
-                src='/eli-bodhi-02.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='2004'
-                ref={ref}
-                src='/eli-04.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='7/31/2009'
-                ref={ref}
-                src='/eli-05.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='11/29/14'
-                ref={ref}
-                src='/eli-yoga-02.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='1/4/2009'
-                ref={ref}
-                src='/eli-06.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='11/12/2018'
-                ref={ref}
-                src='/eli-fashion-03.jpg'
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='9/4/2015'
-                ref={ref}
-                src='/eli-bodhi-03.jpg'
-              />
-            </Box>
-          </Container>
-        )}
+        <Container maxW={'container.2xl'}>
+          {!collage ? (
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 1, 768: 2, 960: 3, 1200: 4 }}
+            >
+              <Masonry gutter='16px'>
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refImage001}
+                  width={!matches ? '100%' : 450}
+                >
+                  <CardImage
+                    organized
+                    src='/eli-fam.jpg'
+                  />
+                </Box>
+                <Box
+                  height={480}
+                  padding={4}
+                  ref={!matches ? null : refImage015}
+                  width={!matches ? '100%' : 450}
+                >
+                  <CardImage
+                    organized
+                    date='12/5/2014'
+                    src='/eli-fashion-02.jpg'
+                  />
+                </Box>
+                <Box
+                  height={400}
+                  padding={4}
+                  ref={!matches ? null : refImage005}
+                  width={!matches ? '100%' : 450}
+                >
+                  <CardImage
+                    organized
+                    date='12/19/2015'
+                    src='/eli-bodhi-01.jpg'
+                  />
+                </Box>
+                {/* <Box
+                padding={4}
+                ref={!matches ? null : refImage007}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={580}
+                  src='/eli-vid-01.mp4'
+                  width={360}
+                />
+              </Box> */}
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refAudio001}
+                  width={!matches ? '100%' : 500}
+                >
+                  <CardAudio
+                    title={`Eli's Fake Podcast`}
+                    src='/eli-moms-podcast.m4a'
+                  />
+                </Box>
+                <Box
+                  height={500}
+                  padding={4}
+                  ref={!matches ? null : refImage002}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='1/10/2010'
+                    src='/eli-yoga-01.jpg'
+                  />
+                </Box>
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refImage003}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='9/11/2016'
+                    src='/eli-fashion-01.jpg'
+                  />
+                </Box>
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refImage004}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='6/25/2016'
+                    src='/eli-03.jpg'
+                  />
+                </Box>
+                {/* <Box
+                padding={4}
+                ref={!matches ? null : refVideo002}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-02.mp4'
+                  width={300}
+                />
+              </Box> */}
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refImage014}
+                  width={!matches ? '100%' : 350}
+                >
+                  <CardImage
+                    organized
+                    date='11/25/2015'
+                    src='/eli-bodhi-02.jpg'
+                  />
+                </Box>
+                <Box
+                  height={300}
+                  padding={4}
+                  ref={!matches ? null : refImage008}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='2004'
+                    src='/eli-04.jpg'
+                  />
+                </Box>
+                <Box
+                  height={500}
+                  padding={4}
+                  ref={!matches ? null : refImage009}
+                  width={!matches ? '100%' : 400}
+                >
+                  <CardImage
+                    organized
+                    date='7/31/2009'
+                    src='/eli-05.jpg'
+                  />
+                </Box>
+                <Box
+                  height={400}
+                  padding={4}
+                  ref={!matches ? null : refImage006}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='11/29/14'
+                    src='/eli-yoga-02.jpg'
+                  />
+                </Box>
+                <Box
+                  height={400}
+                  padding={4}
+                  ref={!matches ? null : refImage016}
+                  width={!matches ? '100%' : 400}
+                >
+                  <CardImage
+                    organized
+                    date='1/4/2009'
+                    src='/eli-06.jpg'
+                  />
+                </Box>
+                <Box
+                  height={250}
+                  padding={4}
+                  ref={!matches ? null : refImage011}
+                  width={!matches ? '100%' : 350}
+                >
+                  <CardImage
+                    organized
+                    date='11/25/2015'
+                    src='/eli-bodhi-02.jpg'
+                  />
+                </Box>
+                {/* <Box
+                padding={4}
+                ref={!matches ? null : refVideo003}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-03.mp4'
+                  width={300}
+                />
+              </Box> */}
+                <Box
+                  height={450}
+                  padding={4}
+                  ref={!matches ? null : refImage012}
+                  width={!matches ? '100%' : 450}
+                >
+                  <CardImage
+                    organized
+                    date='11/12/2018'
+                    src='/eli-fashion-03.jpg'
+                  />
+                </Box>
+                {/* <Box
+                padding={4}
+                ref={!matches ? null : refVideo004}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-04.mp4'
+                  width={300}
+                />
+              </Box> */}
+                <Box
+                  height={450}
+                  padding={4}
+                  ref={!matches ? null : refImage013}
+                  width={!matches ? '100%' : 450}
+                >
+                  <CardImage
+                    organized
+                    date='9/4/2015'
+                    src='/eli-bodhi-03.jpg'
+                  />
+                </Box>
+                <Box
+                  height={350}
+                  padding={4}
+                  ref={!matches ? null : refImage010}
+                  width={!matches ? '100%' : 300}
+                >
+                  <CardImage
+                    organized
+                    date='10/28/2019'
+                    src='/eli-01.jpg'
+                  />
+                </Box>
+              </Masonry>
+            </ResponsiveMasonry>
+          ) : (
+            <>
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refImage001}
+                sx={{
+                  cursor: 'move',
+                }}
+                top={0}
+                width={!matches ? '100%' : 500}
+              >
+                <CardImage
+                  organized
+                  src='/eli-fam.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 500}
+                left={0}
+                position='absolute'
+                ref={refImage015}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='12/5/2014'
+                  src='/eli-fashion-02.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 400}
+                left={0}
+                position='absolute'
+                ref={refImage005}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 400}
+              >
+                <CardImage
+                  organized
+                  date='12/19/2015'
+                  src='/eli-bodhi-01.jpg'
+                />
+              </Box>
+              {/* <Box
+                left={0}
+                position='absolute'
+                ref={refImage007}
+                sx={{
+                  cursor: 'move',
+                }}
+                top={0}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={580}
+                  src='/eli-vid-01.mp4'
+                  width={360}
+                />
+              </Box> */}
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refAudio001}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 500}
+              >
+                <CardAudio
+                  title={`Eli's Fake Podcast`}
+                  src='/eli-moms-podcast.m4a'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 500}
+                left={0}
+                position='absolute'
+                ref={refImage002}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='1/10/2010'
+                  src='/eli-yoga-01.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refImage003}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='9/11/2016'
+                  src='/eli-fashion-01.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refImage004}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='6/25/2016'
+                  src='/eli-03.jpg'
+                />
+              </Box>
+              {/* <Box
+                left={0}
+                position='absolute'
+                ref={refVideo002}
+                sx={{
+                  cursor: 'move',
+                }}
+                top={0}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-02.mp4'
+                  width={300}
+                />
+              </Box> */}
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refImage014}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 350}
+              >
+                <CardImage
+                  organized
+                  date='11/25/2015'
+                  src='/eli-bodhi-02.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 300}
+                left={0}
+                position='absolute'
+                ref={refImage008}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='2004'
+                  src='/eli-04.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 500}
+                left={0}
+                position='absolute'
+                ref={refImage009}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 400}
+              >
+                <CardImage
+                  organized
+                  date='7/31/2009'
+                  src='/eli-05.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 400}
+                left={0}
+                position='absolute'
+                ref={refImage006}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='11/29/14'
+                  src='/eli-yoga-02.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 400}
+                left={0}
+                position='absolute'
+                ref={refImage016}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 400}
+              >
+                <CardImage
+                  organized
+                  date='1/4/2009'
+                  src='/eli-06.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 250}
+                left={0}
+                position='absolute'
+                ref={refImage011}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 350}
+              >
+                <CardImage
+                  organized
+                  date='11/25/2015'
+                  src='/eli-bodhi-02.jpg'
+                />
+              </Box>
+              {/* <Box
+                left={0}
+                position='absolute'
+                ref={refVideo003}
+                sx={{
+                  cursor: 'move',
+                }}
+                top={0}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-03.mp4'
+                  width={300}
+                />
+              </Box> */}
+              <Box
+                height={collage ? 'inherit' : 450}
+                left={0}
+                position='absolute'
+                padding={4}
+                ref={refImage012}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  organized
+                  date='11/12/2018'
+                  src='/eli-fashion-03.jpg'
+                />
+              </Box>
+              {/* <Box
+                left={0}
+                position='absolute'
+                ref={refVideo004}
+                sx={{
+                  cursor: 'move',
+                }}
+                top={0}
+              >
+                <CardVideo
+                  date='1/2021'
+                  height={480}
+                  src='/eli-vid-04.mp4'
+                  width={300}
+                />
+              </Box> */}
+              <Box
+                height={collage ? 'inherit' : 450}
+                left={0}
+                position='absolute'
+                ref={refImage013}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 550}
+              >
+                <CardImage
+                  organized
+                  date='9/4/2015'
+                  src='/eli-bodhi-03.jpg'
+                />
+              </Box>
+              <Box
+                height={collage ? 'inherit' : 350}
+                left={0}
+                position='absolute'
+                ref={refImage010}
+                  sx={{
+                    cursor: 'move',
+                  }}
+                top={0}
+                width={!matches ? '100%' : 300}
+              >
+                <CardImage
+                  organized
+                  date='10/28/2019'
+                  src='/eli-01.jpg'
+                />
+              </Box>
+            </>
+          )}
+        </Container>
       </Box>
     </main>
   )

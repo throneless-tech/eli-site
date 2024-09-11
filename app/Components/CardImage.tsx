@@ -7,7 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-const CardImage = React.forwardRef((props: any, ref: any) => (
+const CardImage = (props: any) => (
   <Box
     background={'#FFF'}
     borderRadius={8}
@@ -16,7 +16,6 @@ const CardImage = React.forwardRef((props: any, ref: any) => (
     overflow={'hidden'}
     padding={'8px'}
     position='relative'
-    ref={ref}
     width='100%'
     zIndex={3}
   >
@@ -27,6 +26,7 @@ const CardImage = React.forwardRef((props: any, ref: any) => (
       width='100%'
     >
     <Box
+      className='cancel'
       height={[200, props.organized ? 400 : '100%']}
       position='relative'
       width={props.organized ? 400 : '100%'}
@@ -58,6 +58,6 @@ const CardImage = React.forwardRef((props: any, ref: any) => (
     </Text>
     </Box>
   </Box>
-));
+);
 
 export default CardImage;

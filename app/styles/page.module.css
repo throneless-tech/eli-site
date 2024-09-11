@@ -140,7 +140,7 @@
 }
 
 .card:hover, .nav:hover {
-  cursor: move;
+  /* cursor: move; */
 }
 
 .grid {
