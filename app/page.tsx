@@ -117,6 +117,7 @@ export default function Home() {
               fontWeight="bold"
               marginLeft={"auto"}
               marginRight={0}
+              position='relative'
               style={{ filter: "drop-shadow(0px 4px 2px #4C4E52)" }}
               width={130}
               zIndex={5}
@@ -221,28 +222,25 @@ export default function Home() {
                 <Masonry>
                   <Box padding={4}>
                     <CardImage
-                      height={300}
+                      organized
                       ref={ref}
                       src='/eli-fam.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='12/5/2014'
-                      height={600}
                       ref={ref}
                       src='/eli-fashion-02.jpg'
-                      width={300}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='12/19/2015'
-                      height={300}
                       ref={ref}
                       src='/eli-bodhi-01.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
@@ -262,29 +260,26 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='1/10/2010'
-                      height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='9/11/2016'
-                      height={300}
                       ref={ref}
                       src='/eli-fashion-01.jpg'
-                      width={300}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='6/25/2016'
-                      height={500}
                       ref={ref}
                       src='/eli-03.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
@@ -298,56 +293,50 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='11/25/2015'
-                      height={300}
                       ref={ref}
                       src='/eli-bodhi-02.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='2004'
-                      height={500}
                       ref={ref}
                       src='/eli-04.jpg'
-                      width={500}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='7/31/2009'
-                      height={500}
                       ref={ref}
                       src='/eli-05.jpg'
-                      width={400}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='11/29/14'
-                      height={600}
                       ref={ref}
                       src='/eli-yoga-02.jpg'
-                      width={300}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='1/4/2009'
-                      height={300}
                       ref={ref}
                       src='/eli-06.jpg'
-                      width={600}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='11/25/2015'
-                      height={400}
                       ref={ref}
                       src='/eli-bodhi-02.jpg'
-                      width={600}
                     />
                   </Box>
                   <Box padding={4}>
@@ -361,11 +350,10 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='11/12/2018'
-                      height={400}
                       ref={ref}
                       src='/eli-fashion-03.jpg'
-                      width={300}
                     />
                   </Box>
                   <Box padding={4}>
@@ -379,20 +367,18 @@ export default function Home() {
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='9/4/2015'
-                      height={400}
                       ref={ref}
                       src='/eli-bodhi-03.jpg'
-                      width={600}
                     />
                   </Box>
                   <Box padding={4}>
                     <CardImage
+                      organized
                       date='10/28/2019'
-                      height={350}
                       ref={ref}
                       src='/eli-01.jpg'
-                      width={300}
                     />
                   </Box>
                 </Masonry>
@@ -402,10 +388,8 @@ export default function Home() {
                 <Draggable defaultPosition={{ x: 25, y: 25 }}>
                   <Box className={styles.card} height={300} width={500}>
                     <CardImage
-                      height={300}
                       ref={ref}
                       src='/eli-fam.jpg'
-                      width={"100%"}
                     />
                   </Box>
                 </Draggable>
@@ -413,10 +397,8 @@ export default function Home() {
                   <Box className={styles.card} height={500} width={300}>
                     <CardImage
                       date='1/10/2010'
-                      height={500}
                       ref={ref}
                       src='/eli-yoga-01.jpg'
-                      width={"100%"}
                     />
                   </Box>
                 </Draggable>
@@ -425,10 +407,8 @@ export default function Home() {
                     <Box className={styles.card} height={300} width={300}>
                       <CardImage
                         date='9/11/2016'
-                        height={300}
                         ref={ref}
                         src='/eli-fashion-01.jpg'
-                        width={"100%"}
                       />
                     </Box>
                   </Box>
@@ -437,10 +417,8 @@ export default function Home() {
                   <Box className={styles.card} height={300} width={300}>
                     <CardImage
                       date='6/25/2016'
-                      height={300}
                       ref={ref}
                       src='/eli-03.jpg'
-                      width={"100%"}
                     />
                   </Box>
                 </Draggable>
@@ -448,10 +426,8 @@ export default function Home() {
                   <Box className={styles.card} height={300} width={500}>
                     <CardImage
                       date='12/19/2015'
-                      height={300}
                       ref={ref}
                       src='/eli-bodhi-01.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -459,10 +435,8 @@ export default function Home() {
                   <Box className={styles.card} height={400} width={300}>
                     <CardImage
                       date='11/29/14'
-                      height={400}
                       ref={ref}
                       src='/eli-yoga-02.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -470,10 +444,8 @@ export default function Home() {
                   <Box className={styles.card} height={480} width={300}>
                     <CardVideo
                       date='1/2021'
-                      height={480}
                       ref={ref}
                       src='/eli-vid-01.mp4'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -481,10 +453,8 @@ export default function Home() {
                   <Box className={styles.card} height={300} width={300}>
                     <CardImage
                       date='2004'
-                      height={300}
                       ref={ref}
                       src='/eli-04.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -492,10 +462,8 @@ export default function Home() {
                   <Box className={styles.card} height={500} width={400}>
                     <CardImage
                       date='7/31/2009'
-                      height={500}
                       ref={ref}
                       src='/eli-05.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -503,10 +471,8 @@ export default function Home() {
                   <Box className={styles.card} height={350} width={300}>
                     <CardImage
                       date='10/28/2019'
-                      height={350}
                       ref={ref}
                       src='/eli-01.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -514,10 +480,8 @@ export default function Home() {
                   <Box className={styles.card} height={250} width={350}>
                     <CardImage
                       date='11/25/2015'
-                      height={250}
                       ref={ref}
                       src='/eli-bodhi-02.jpg'
-                      width={'100%'}
                     />
                   </Box>
                 </Draggable>
@@ -536,10 +500,8 @@ export default function Home() {
           <Container maxW={'container.2xl'}>
             <Box padding={4}>
               <CardImage
-                height={250}
                 ref={ref}
                 src='/eli-fam.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
@@ -551,118 +513,92 @@ export default function Home() {
             <Box padding={4}>
               <CardImage
                 date='10/28/2019'
-                height={250}
                 ref={ref}
                 src='/eli-01.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='12/5/2014'
-                height={600}
                 ref={ref}
                 src='/eli-fashion-02.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='12/19/2015'
-                height={250}
                 ref={ref}
                 src='/eli-bodhi-01.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='1/10/2010'
-                height={300}
                 ref={ref}
                 src='/eli-yoga-01.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='9/11/2016'
-                height={300}
                 ref={ref}
                 src='/eli-fashion-01.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='6/25/2016'
-                height={300}
                 ref={ref}
                 src='/eli-03.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='11/25/2015'
-                height={260}
                 ref={ref}
                 src='/eli-bodhi-02.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='2004'
-                height={400}
                 ref={ref}
                 src='/eli-04.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='7/31/2009'
-                height={500}
                 ref={ref}
                 src='/eli-05.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='11/29/14'
-                height={600}
                 ref={ref}
                 src='/eli-yoga-02.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='1/4/2009'
-                height={200}
                 ref={ref}
                 src='/eli-06.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='11/12/2018'
-                height={400}
                 ref={ref}
                 src='/eli-fashion-03.jpg'
-                width={300}
               />
             </Box>
             <Box padding={4}>
               <CardImage
                 date='9/4/2015'
-                height={240}
                 ref={ref}
                 src='/eli-bodhi-03.jpg'
-                width={300}
               />
             </Box>
           </Container>
