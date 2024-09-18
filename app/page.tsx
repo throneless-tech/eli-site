@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { chivo } from './styles/fonts';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { useDraggable } from '@neodrag/react';
+import { useDraggable } from "@neodrag/react";
 import {
   Box,
   Button,

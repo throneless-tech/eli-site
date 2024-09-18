@@ -52,11 +52,11 @@ export default function MentalHealthPage() {
       <Container maxW={'container.lg'} marginTop={12}>
         <Flex direction={['column', 'row']} alignItems='center' gap='6'>
           <Box as='h2' textStyle='h2' className={chivo.className}>
-            Check out these resources
+            Check out these resources:
           </Box>
           <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 550]}>
             <Link href='https://www.besselvanderkolk.com/resources/the-body-keeps-the-score'>
-              The Body Keeps the Score
+              Van der Kolk: Brain, Mind, and Body in the Healing of Trauma
             </Link>
             <Link href='https://www.enneagraminstitute.com/the-traditional-enneagram'>
               Traditional Enneagram

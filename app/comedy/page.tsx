@@ -44,19 +44,19 @@ export default function ComedyPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Comedy
+            Comedy.
           </Text>
           <Nav selected="comedy" />
         </VStack>
       </Center>
-      <Container maxW={'2xl'} marginTop={12}>
-        <Flex direction={['column', 'row']} alignItems='center' gap='6'>
+      <Container maxW={'6xl'} marginTop={12}>
+        <Flex direction={['column', 'row']} alignItems='center' gap={20}>
           <Box as='h2' textStyle='h2' className={chivo.className}>
             Some favorites:
           </Box>
           <VStack align='flex-start' className={chivo.className} fontSize={24}>
             <Link href='https://www.youtube.com/c/EndlessHoneymoon'>
-              Endless Honeymoon podcast
+              Moshe Kasher & Natasha Leggero: Endless Honeymoon podcast
             </Link>
             <Link href='https://www.netflix.com/title/81289483'>
               Bo Burnham: Inside
