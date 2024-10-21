@@ -20,16 +20,17 @@ import {
   HStack,
   Link,
   Modal,
+  ModalBody,
+  ModalCloseButton,
   ModalContent,
+  ModalHeader,
   ModalOverlay,
   ResponsiveValue,
   Text,
   VisuallyHidden,
   VStack,
   useDisclosure,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody
+  slideFadeConfig,
 } from '@chakra-ui/react';
 import styles from './styles/page.module.css';
 
@@ -171,13 +172,20 @@ export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // gallery slider settings
+  const [slide, setSlide] = useState(0);
+
   var sliderSettings = {
     dots: true,
     infinite: true,
+    initialSlide: slide,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const updateSlide = (slideNumber: number) => {
+    setSlide(slide => slideNumber);
+  }
 
   // media query
   const [matches, setMatches] = useState(false);
@@ -191,7 +199,7 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => { }, [clickCount, collage, matches])
+  useEffect(() => { }, [clickCount, collage, matches, slide])
 
   return (
     <main>

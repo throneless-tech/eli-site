@@ -1,20 +1,34 @@
 "use client"
+
+// base imports
 import React, { useEffect, useRef, useState } from 'react';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { chivo } from '../styles/fonts';
 import { useDraggable } from "@neodrag/react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// chakra ui imports
 import {
   Box,
   Center,
   Container,
-  Flex,
-  Image as ChakraImage,
   Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   Text,
   VStack,
   Heading,
+  useDisclosure,
   VisuallyHidden,
 } from '@chakra-ui/react';
+
+// styles
 import styles from '../styles/page.module.css';
 
 // hooks
@@ -72,6 +86,25 @@ export default function FashionPage() {
   const refImage008 = useRef(null);
   useDraggable(refImage008, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
+  // gallery modal settings
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // gallery slider settings
+  const [slide, setSlide] = useState(0);
+
+  var sliderSettings = {
+    dots: true,
+    infinite: true,
+    initialSlide: slide,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  const updateSlide = (slideNumber: number) => {
+    setSlide(slide => slideNumber);
+  }
+
   // media query
   const [matches, setMatches] = useState(false);
 
@@ -109,11 +142,131 @@ export default function FashionPage() {
           <Nav selected="fashion" />
         </VStack>
       </Center>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <ModalCloseButton />            
+          </ModalHeader>
+          <ModalBody>
+            <Slider {...sliderSettings}>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage001}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='9/11/2016'
+                  height={300}
+                  src='/eli-fashion-01.jpg'
+                  width={300}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage002}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='12/5/2014'
+                  height={500}
+                  src='/eli-fashion-02.jpg'
+                  width={350}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage003}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='11/12/2018'
+                  height={300}
+                  src='/eli-fashion-03.jpg'
+                  width={300}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage004}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='10/29/2016'
+                  height={300}
+                  src='/eli-fashion-04.jpg'
+                  width={300}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage005}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='6/8/2009'
+                  height={500}
+                  src='/eli-fashion-05.jpg'
+                  width={500}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage006}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='6/7/2009'
+                  height={300}
+                  src='/eli-fashion-06.jpg'
+                  width={300}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage007}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='3/13/2009'
+                  height={600}
+                  src='/eli-fashion-07.jpg'
+                  width={400}
+                />
+              </Box>
+              <Box
+                height={480}
+                padding={4}
+                ref={!matches ? null : refImage008}
+                width={!matches ? '100%' : 450}
+              >
+                <CardImage
+                  date='2009'
+                  height={300}
+                  src='/eli-02.jpg'
+                  width={300}
+                />
+              </Box>
+            </Slider>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
       <Container marginTop={8} maxW={'container.2xl'}>
         {matches ? (
           <Masonry>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(0);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage001}
               width={!matches ? '100%' : 450}
@@ -127,6 +280,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(1);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage002}
               width={!matches ? '100%' : 450}
@@ -140,6 +297,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(2);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage003}
               width={!matches ? '100%' : 450}
@@ -153,6 +314,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(3);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage004}
               width={!matches ? '100%' : 450}
@@ -166,6 +331,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(4);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage005}
               width={!matches ? '100%' : 450}
@@ -179,6 +348,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(5);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage006}
               width={!matches ? '100%' : 450}
@@ -192,6 +365,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(6);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage007}
               width={!matches ? '100%' : 450}
@@ -205,6 +382,10 @@ export default function FashionPage() {
             </Box>
             <Box
               height={480}
+              onClick={() => {
+                updateSlide(7);
+                return onOpen();
+              }}
               padding={4}
               ref={!matches ? null : refImage008}
               width={!matches ? '100%' : 450}
