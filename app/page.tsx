@@ -1,32 +1,49 @@
 "use client"
+
+// base imports
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { chivo } from './styles/fonts';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useDraggable } from "@neodrag/react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// chakra ui imports
 import {
   Box,
   Button,
   Center,
   Container,
   Heading,
+  HStack,
   Link,
+  Modal,
+  ModalContent,
+  ModalOverlay,
   ResponsiveValue,
   Text,
   VisuallyHidden,
   VStack,
+  useDisclosure,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody
 } from '@chakra-ui/react';
 import styles from './styles/page.module.css';
 
 //hooks
 import useWindowDimensions from './hooks/useWindowDimensions';
 
+// components
 import CardAudio from './Components/CardAudio';
 import CardImage from './Components/CardImage';
 import CardVideo from './Components/CardVideo';
 import CardLink from './Components/CardLink';
 import CardWord from './Components/CardWord';
 import Nav from './Components/Nav';
+import Swr from './Components/Swr';
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -50,81 +67,79 @@ export default function Home() {
 
   // draggable items
   const draggableComedy = useRef(null);
-  useDraggable(draggableComedy, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(draggableComedy, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const draggableFashion = useRef(null);
-  useDraggable(draggableFashion, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(draggableFashion, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const draggableHealth = useRef(null);
-  useDraggable(draggableHealth, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(draggableHealth, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const draggableYoga = useRef(null);
-  useDraggable(draggableYoga, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(draggableYoga, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage001 = useRef(null);
-  useDraggable(refImage001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const { isDragging, dragState } = useDraggable(draggableFashion, { bounds: '.grid', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage002 = useRef(null);
-  useDraggable(refImage002, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage002, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage003 = useRef(null);
-  useDraggable(refImage003, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage003, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage004 = useRef(null);
-  useDraggable(refImage004, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage004, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage005 = useRef(null);
-  useDraggable(refImage005, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage005, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage006 = useRef(null);
-  useDraggable(refImage006, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage006, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage007 = useRef(null);
-  useDraggable(refImage007, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage007, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage008 = useRef(null);
-  useDraggable(refImage008, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage008, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage009 = useRef(null);
-  useDraggable(refImage009, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage009, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage010 = useRef(null);
-  useDraggable(refImage010, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage010, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage011 = useRef(null);
-  useDraggable(refImage011, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage011, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage012 = useRef(null);
-  useDraggable(refImage012, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage012, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage013 = useRef(null);
-  useDraggable(refImage013, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage013, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage014 = useRef(null);
-  useDraggable(refImage014, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage014, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage015 = useRef(null);
-  useDraggable(refImage015, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage015, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refImage016 = useRef(null);
-  useDraggable(refImage016, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refImage016, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refVideo001 = useRef(null);
-  useDraggable(refVideo001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refVideo001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refVideo002 = useRef(null);
-  useDraggable(refVideo002, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refVideo002, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refVideo003 = useRef(null);
-  useDraggable(refVideo003, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refVideo003, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refVideo004 = useRef(null);
-  useDraggable(refVideo004, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refVideo004, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
   const refAudio001 = useRef(null);
-  useDraggable(refAudio001, { bounds: '.grid', cancel: '.cancel', defaultPosition: { x: randomWidth(), y: randomHeight() } });
+  useDraggable(refAudio001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
 
   // check if images should be randomized or form a collage
@@ -151,6 +166,18 @@ export default function Home() {
       return 0;
     }
   }
+
+  // gallery modal settings
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // gallery slider settings
+  var sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   // media query
   const [matches, setMatches] = useState(false);
@@ -224,8 +251,30 @@ export default function Home() {
             className={styles.backgroundPic}
           />
         </Box>
-        {matches ? (
-          <Box>
+        <HStack
+          gap={1}
+          marginLeft='auto'
+          marginRight={0}
+          maxW={300}
+        >
+          <Text
+            as={"button"}
+            onClick={onOpen}
+            className={chivo.className}
+            color="#FFFFFF"
+            display={"block"}
+            fontSize={24}
+            fontWeight="bold"
+            marginLeft={"auto"}
+            marginRight={0}
+            position='relative'
+            style={{ filter: "drop-shadow(0px 4px 2px #4C4E52)" }}
+            width={130}
+            zIndex={5}
+          >
+            Gallery
+          </Text>
+          {matches ? (
             <Text
               as={"button"}
               onClick={handleCollage}
@@ -243,8 +292,42 @@ export default function Home() {
             >
               {collage ? 'Organize' : 'Collage'}
             </Text>
-          </Box>
-        ) : null}
+          ) : null}
+        </HStack>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>
+              <ModalCloseButton
+                marginLeft='auto'
+                marginRight={0}
+                onClick={onClose}
+              />
+            </ModalHeader>
+            <ModalBody>
+              <Slider {...sliderSettings}>
+                <div>
+                  <h3>1</h3>
+                </div>
+                <div>
+                  <h3>2</h3>
+                </div>
+                <div>
+                  <h3>3</h3>
+                </div>
+                <div>
+                  <h3>4</h3>
+                </div>
+                <div>
+                  <h3>5</h3>
+                </div>
+                <div>
+                  <h3>6</h3>
+                </div>
+              </Slider>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
         <Center marginY={10}>
           <VStack>
             <Link width={[300, 'unset']}>

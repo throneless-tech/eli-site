@@ -7,7 +7,6 @@ import {
   Center,
   Container,
   Flex,
-  Image as ChakraImage,
   Link,
   Text,
   VStack,
