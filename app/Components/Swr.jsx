@@ -1,6 +1,10 @@
 import useSWR from 'swr';
 
-// Import useSWR from swr package
+// chakra ui imports
+import { Box } from '@chakra-ui/react';
+
+// components
+import CardImage from './CardImage';
 
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -14,7 +18,7 @@ const Swr = (props) => {
     data: items,
     error,
     isValidating,
-  } = useSWR(`${process.env.NEXT_PUBLIC_OMEKA_URL}/items/?featured=true&public=true`, fetcher);
+  } = useSWR(`${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`, fetcher);
 
   // Handles error and loading state
   if (error) return <div className='failed'>failed to load</div>;
