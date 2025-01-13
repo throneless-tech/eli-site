@@ -1,6 +1,5 @@
 // base imports
-import { createRef, useEffect, useRef, useState } from 'react';
-import { useDraggable } from "@neodrag/react";
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 // chakra ui imports
@@ -11,23 +10,13 @@ import {
 
 // components
 import CardImage from './CardImage';
-
-//hooks
-import useWindowDimensions from '../hooks/useWindowDimensions';
-
-// utils
-import {
-  positionLeft,
-  positionTop,
-  randomHeight,
-  randomWidth
-} from '../utils/dimensions';
+import CardVideo from './CardVideo';
+import CardAudio from './CardAudio';
 
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const FileCollage = (props) => {
-  const { height, width } = useWindowDimensions();
   const [date, setDate] = useState(null);
   const {
     data,
@@ -48,7 +37,7 @@ const FileCollage = (props) => {
   useEffect(() => { }, [date])
 
   const {
-    data: item,
+    data: items,
     error,
     isValidating,
   } = useSWR(url, fetcher);
@@ -57,31 +46,34 @@ const FileCollage = (props) => {
   if (error) return <Box color='red'>Failed to load.</Box>;
   if (isValidating) return <Skeleton height='50px' />;
 
-  // create a ref for each item and make it draggable
-  function createDraggableRef(element) {
-    
-    useDraggable(element, { defaultPosition: { x: randomWidth(width), y: randomHeight(height) } });
-  };
-
   return (
-    <Box
-      key={`item-${item[0].id}`}
-      height={'inherit'}
-      position='absolute'
-      ref={element => createDraggableRef(element)}
-      sx={{
-        cursor: 'move',
-        left: positionLeft,
-        top: positionTop,
-      }}
-      width={!matches ? '100%' : 500}
-    >
-      <CardImage
-        organized
-        date={date}
-        src={item[0].file_urls.original}
-      />
-    </Box>
+    <>
+      {items.map(item => (
+        <Box
+          key={`item-${item.id}`}
+          height={'inherit'}
+        >
+          {item.mime_type.includes("image") ? (
+            <CardImage
+              organized
+              date={date}
+              matches={matches}
+              src={item.file_urls.original}
+            />
+          ) : item.mime_type.includes("video") ? (
+            <CardVideo
+              matches={matches}
+              src={item.file_urls.original}
+            />
+          ) : item.mime_type.includes("audio") ? (
+            <CardAudio
+              matches={matches}
+              src={item.file_urls.original}
+            />
+          ) : null}
+        </Box>
+      ))}
+    </>
   )
 };
 
