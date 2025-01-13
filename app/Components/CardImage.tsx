@@ -1,5 +1,10 @@
 "use client"
-import React, { useRef } from 'react';
+import React,
+{
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import Image from 'next/image';
 import { useDraggable } from "@neodrag/react";
 import { chivo } from '../styles/fonts';
@@ -19,13 +24,28 @@ import {
 } from '../utils/dimensions';
 
 const CardImage = (props: any) => {
-  // create a ref for each item and make it draggable
-  const options = { 
-    defaultPosition: {
-      x: randomWidth(),
-      y: randomHeight()
-    },
-  };
+  // create a ref for each item and make it draggable, if it is not in the gallery view
+  const [options, setOptions] = useState({});
+
+  useEffect(() => {
+    if (!props.gallery) {
+      const newOptions = {
+        defaultPosition: {
+          x: randomWidth(),
+          y: randomHeight()
+        },
+      };
+      setOptions(newOptions);
+    } else {
+      const newOptions = {
+        disabled: true,
+      };
+      setOptions(newOptions);
+    }
+  }, []);
+
+  useEffect(() => { }, [options]);
+
   const ref = useRef(null);
   useDraggable(ref, options);
 
@@ -37,12 +57,12 @@ const CardImage = (props: any) => {
       height={'inherit'}
       overflow={'hidden'}
       padding={'8px'}
-      position='absolute'
+      position={props.gallery ? 'relative' : 'absolute'}
       ref={ref}
       sx={{
-        cursor: 'move',
-        left: positionLeft,
-        top: positionTop,
+        cursor: props.gallery ? 'pointer' : 'move',
+        left: props.gallery ? 0 : positionLeft,
+        top: props.gallery ? 0 : positionTop,
       }}
       width={!props.matches ? '100%' : 400}
       zIndex={3}

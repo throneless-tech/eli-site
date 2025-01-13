@@ -9,9 +9,9 @@ import {
 } from '@chakra-ui/react';
 
 // components
+import CardAudio from './CardAudio';
 import CardImage from './CardImage';
 import CardVideo from './CardVideo';
-import CardAudio from './CardAudio';
 
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());

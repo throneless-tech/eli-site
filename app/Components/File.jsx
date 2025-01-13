@@ -9,7 +9,9 @@ import {
 } from '@chakra-ui/react';
 
 // components
+import CardAudio from './CardAudio';
 import CardImage from './CardImage';
+import CardVideo from './CardVideo';
 
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -34,7 +36,7 @@ const File = (props) => {
   useEffect(() => {}, [date])
 
   const {
-    data: item,
+    data: items,
     error,
     isValidating,
   } = useSWR(url, fetcher);
@@ -44,16 +46,34 @@ const File = (props) => {
   if (isValidating) return <Skeleton height='50px' />;
 
   return (
-    <Box
-      key={`item-${item[0].id}`}
-      padding={4}
-    >
-      <CardImage
-        organized
-        date={date}
-        src={item[0].file_urls.original}
-      />
-    </Box>
+    <>
+      {items.map(item => (
+        <Box
+          key={`item-${item.id}`}
+          paddingBottom={12}
+          paddingTop={4}
+        >
+          {item.mime_type.includes("image") ? (
+            <CardImage
+              gallery
+              organized
+              date={date}
+              src={item.file_urls.original}
+            />
+          ) : item.mime_type.includes("video") ? (
+            <CardVideo
+              gallery
+              src={item.file_urls.original}
+            />
+          ) : item.mime_type.includes("audio") ? (
+            <CardAudio
+              gallery
+              src={item.file_urls.original}
+            />
+          ) : null}
+        </Box>
+      ))}
+    </>
   )
 };
 
