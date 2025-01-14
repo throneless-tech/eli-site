@@ -18,33 +18,20 @@ import {
 import {
   positionLeft,
   positionTop,
-  randomHeight,
-  randomWidth
 } from '../utils/dimensions';
 
 const CardVideo = (props: any) => {
+  const {
+    date,
+    gallery,
+    height,
+    matches,
+    options,
+    src,
+    width
+  } = props;
+  
   // create a ref for each item and make it draggable, if it is not in the gallery view
-  const [options, setOptions] = useState({});
-
-  useEffect(() => {
-    if (!props.gallery) {
-      const newOptions = {
-        defaultPosition: {
-          x: randomWidth(),
-          y: randomHeight()
-        },
-      };
-      setOptions(newOptions);
-    } else {
-      const newOptions = {
-        disabled: true,
-      };
-      setOptions(newOptions);
-    }
-  }, []);
-
-  useEffect(() => { }, [options]);
-
   const ref = useRef(null);
   useDraggable(ref, options);
 
@@ -55,23 +42,23 @@ const CardVideo = (props: any) => {
       borderRadius={8}
       boxShadow={'0px 4px 4px 0px rgba(0, 0, 0, 0.25);'}
       padding={'8px'}
-      position={props.gallery ? 'relative' : 'absolute'}
+      position={gallery ? 'relative' : 'absolute'}
       ref={ref}
       sx={{
-        cursor: props.gallery ? 'pointer' : 'move',
-        left: props.gallery ? 0 : positionLeft,
-        top: props.gallery ? 0 : positionTop,
+        cursor: gallery ? 'pointer' : 'move',
+        left: gallery ? 0 : positionLeft,
+        top: gallery ? 0 : positionTop,
       }}
-      width={!props.matches ? '100%' : 400}
+      width={!matches ? '100%' : 400}
     >
       <Box
-        height={props.height ? props.height : 300}
-        width={props.width ? props.width : "100%"}
+        height={height ? height : 300}
+        width={width ? width : "100%"}
         overflow={'hidden'}
         position='relative'
       >
         <video autoPlay muted loop playsInline>
-          <source src={props.src} type="video/mp4" />
+          <source src={src} type="video/mp4" />
         </video>
       </Box>
       <Text
@@ -81,7 +68,7 @@ const CardVideo = (props: any) => {
         padding={'4px'}
         textAlign={'center'}
       >
-        {props.date ? props.date : ''}
+        {date ? date : ''}
       </Text>
     </Box>
   )

@@ -19,33 +19,22 @@ import {
 import {
   positionLeft,
   positionTop,
-  randomHeight,
-  randomWidth
 } from '../utils/dimensions';
 
 const CardImage = (props: any) => {
+  const {
+    date,
+    gallery,
+    matches,
+    options,
+    organized,
+    src
+  } = props;
+
+  console.log(options);
+  
+
   // create a ref for each item and make it draggable, if it is not in the gallery view
-  const [options, setOptions] = useState({});
-
-  useEffect(() => {
-    if (!props.gallery) {
-      const newOptions = {
-        defaultPosition: {
-          x: randomWidth(),
-          y: randomHeight()
-        },
-      };
-      setOptions(newOptions);
-    } else {
-      const newOptions = {
-        disabled: true,
-      };
-      setOptions(newOptions);
-    }
-  }, []);
-
-  useEffect(() => { }, [options]);
-
   const ref = useRef(null);
   useDraggable(ref, options);
 
@@ -57,14 +46,14 @@ const CardImage = (props: any) => {
       height={'inherit'}
       overflow={'hidden'}
       padding={'8px'}
-      position={props.gallery ? 'relative' : 'absolute'}
+      position={gallery ? 'relative' : 'absolute'}
       ref={ref}
       sx={{
-        cursor: props.gallery ? 'pointer' : 'move',
-        left: props.gallery ? 0 : positionLeft,
-        top: props.gallery ? 0 : positionTop,
+        cursor: gallery ? 'pointer' : 'move',
+        left: gallery ? 0 : positionLeft,
+        top: gallery ? 0 : positionTop,
       }}
-      width={!props.matches ? '100%' : 400}
+      width={!matches ? '100%' : 400}
       zIndex={3}
     >
       <Box
@@ -75,13 +64,13 @@ const CardImage = (props: any) => {
       >
         <Box
           className='cancel'
-          height={[200, props.organized ? 400 : '100%']}
+          height={[200, organized ? 400 : '100%']}
           position='relative'
-          width={props.organized ? 400 : '100%'}
+          width={organized ? 400 : '100%'}
 
         >
           <Image
-            src={props.src}
+            src={src}
             alt='Eli'
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -102,7 +91,7 @@ const CardImage = (props: any) => {
           width='100%'
           zIndex={2}
         >
-          {props.date ? props.date : ''}
+          {date ? date : ''}
         </Text>
       </Box>
     </Box>

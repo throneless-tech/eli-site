@@ -16,17 +16,24 @@ import File from './File';
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const SwrSlider = () => {
+function useItems(url) {
+  const { data, error, isLoading } = useSWR(url, fetcher)
 
-  const {
-    data: items,
-    error,
-    isValidating,
-  } = useSWR(`${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`, fetcher);
+  return {
+    items: data,
+    isLoading,
+    isError: error
+  }
+}
+
+const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`
+
+const SwrSlider = () => {
+  const { items, isLoading, isError } = useItems(URL);
 
   // Handles error and loading state
-  if (error) return <Box color='red'>Failed to load.</Box>;
-  if (isValidating) return <Skeleton height='50px' />;
+  if (isLoading) return <Skeleton height='50px' />;
+  if (isError) return <Box color='red'>Failed to load.</Box>;
 
   // gallery slider settings
   var sliderSettings = {

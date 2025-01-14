@@ -13,16 +13,37 @@ import CardAudio from './CardAudio';
 import CardImage from './CardImage';
 import CardVideo from './CardVideo';
 
+// utils
+import {
+  positionLeft,
+  positionTop,
+  randomHeight,
+  randomWidth
+} from '../utils/dimensions';
+
 // created function to handle API request
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
+function useFiles(url) {
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    files: data,
+    isLoading,
+    isError: error
+  }
+}
+
 const FileCollage = (props) => {
   const [date, setDate] = useState(null);
+
   const {
     data,
     matches,
     url
   } = props;
+
+  const { files, isLoading, isError } = useFiles(url);
 
   useEffect(() => {
     if (data && data.length) {
@@ -32,23 +53,17 @@ const FileCollage = (props) => {
         }
       })
     }
-  }, [])
+  }, [data])
 
   useEffect(() => { }, [date])
 
-  const {
-    data: items,
-    error,
-    isValidating,
-  } = useSWR(url, fetcher);
-
-  // Handles error and loading state
-  if (error) return <Box color='red'>Failed to load.</Box>;
-  if (isValidating) return <Skeleton height='50px' />;
+  // Handles loading and error state
+  if (isLoading) return <Skeleton height='50px' />;
+  if (isError) return <Box color='red'>Failed to load.</Box>;
 
   return (
     <>
-      {items.map(item => (
+      {files.map(item => (
         <Box
           key={`item-${item.id}`}
           height={'inherit'}
@@ -58,16 +73,28 @@ const FileCollage = (props) => {
               organized
               date={date}
               matches={matches}
+              options={{
+                x: randomWidth(),
+                y: randomHeight(),
+              }}
               src={item.file_urls.original}
             />
           ) : item.mime_type.includes("video") ? (
             <CardVideo
               matches={matches}
+              options={{
+                x: randomWidth(),
+                y: randomHeight(),
+              }}
               src={item.file_urls.original}
             />
           ) : item.mime_type.includes("audio") ? (
             <CardAudio
               matches={matches}
+              options={{
+                x: randomWidth(),
+                y: randomHeight(),
+              }}
               src={item.file_urls.original}
             />
           ) : null}
