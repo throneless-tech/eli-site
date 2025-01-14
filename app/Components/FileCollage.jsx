@@ -40,6 +40,7 @@ const FileCollage = (props) => {
   const {
     data,
     matches,
+    onOpen,
     url
   } = props;
 
@@ -73,21 +74,22 @@ const FileCollage = (props) => {
               organized
               date={date}
               matches={matches}
+              onOpen={onOpen}
               options={{
+                cancel: '.cancel',
                 defaultPosition: {
                   x: randomWidth(),
                   y: randomHeight(),
                 },
-                onDrag: (data) => {
-                  console.log('onDrag', data);
-                }, 
               }}
               src={item.file_urls.original}
             />
           ) : item.mime_type.includes("video") ? (
             <CardVideo
               matches={matches}
+              onOpen={onOpen}
               options={{
+                cancel: '.cancel',
                 defaultPosition: {
                   x: randomWidth(),
                   y: randomHeight(),
@@ -98,7 +100,9 @@ const FileCollage = (props) => {
           ) : item.mime_type.includes("audio") ? (
             <CardAudio
               matches={matches}
+              onOpen={onOpen}
               options={{
+                cancel: '.cancel',
                 defaultPosition: {
                   x: randomWidth(),
                   y: randomHeight(),

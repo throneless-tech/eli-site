@@ -1,4 +1,5 @@
 // base imports
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,6 +14,8 @@ import {
 import File from './File';
 
 const SwrSlider = (props) => {
+  const [slide, setSlide] = useState(0);
+
   const {
     isError,
     isLoading,
@@ -27,10 +30,17 @@ const SwrSlider = (props) => {
   var sliderSettings = {
     dots: true,
     infinite: true,
+    initialSlide: slide,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const updateSlide = (index) => {
+    setSlide(index);
+  }
+
+  useEffect(() => {}, [slide])
 
   return (
     <Slider {...sliderSettings}>
@@ -39,6 +49,7 @@ const SwrSlider = (props) => {
           key={`item-${index}`}
           data={item.element_texts}
           url={item.files.url}
+          updateSlide={updateSlide}
         />
       ))}
     </Slider>

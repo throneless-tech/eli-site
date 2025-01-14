@@ -325,6 +325,7 @@ export default function Home() {
             isLoading={isLoading}
             items={items}
             matches={matches}
+            onOpen={onOpen}
           />
         </Container>
       </Box>

@@ -1,10 +1,5 @@
 "use client"
-import React,
-{
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { useRef } from 'react';
 import { chivo } from '../styles/fonts'
 import { useDraggable } from "@neodrag/react";
 
@@ -14,18 +9,13 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-// utils
-import {
-  positionLeft,
-  positionTop,
-} from '../utils/dimensions';
-
 const CardVideo = (props: any) => {
   const {
     date,
     gallery,
     height,
     matches,
+    onOpen,
     options,
     src,
     width
@@ -50,8 +40,10 @@ const CardVideo = (props: any) => {
       width={!matches ? '100%' : 400}
     >
       <Box
+        className='cancel'
         height={height ? height : 300}
         width={width ? width : "100%"}
+        onClick={onOpen}
         overflow={'hidden'}
         position='relative'
       >

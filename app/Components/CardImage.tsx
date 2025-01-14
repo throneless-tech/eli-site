@@ -1,10 +1,5 @@
 "use client"
-import React,
-{
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { useDraggable } from "@neodrag/react";
 import { chivo } from '../styles/fonts';
@@ -15,17 +10,12 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-// utils
-import {
-  positionLeft,
-  positionTop,
-} from '../utils/dimensions';
-
 const CardImage = (props: any) => {
   const {
     date,
     gallery,
     matches,
+    onOpen,
     options,
     organized,
     src
@@ -40,6 +30,7 @@ const CardImage = (props: any) => {
       background={'#FFF'}
       borderRadius={8}
       boxShadow={'0px 4px 4px 0px rgba(0, 0, 0, 0.25);'}
+      className='cancel'
       height={'inherit'}
       overflow={'hidden'}
       padding={'8px'}
@@ -60,9 +51,9 @@ const CardImage = (props: any) => {
         <Box
           className='cancel'
           height={[200, organized ? 400 : '100%']}
+          onClick={onOpen}
           position='relative'
           width={organized ? 400 : '100%'}
-
         >
           <Image
             src={src}

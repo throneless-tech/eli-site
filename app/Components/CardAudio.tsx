@@ -1,10 +1,5 @@
 "use client"
-import React,
-{
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { useRef } from 'react';
 import { useDraggable } from "@neodrag/react";
 import { chivo } from '../styles/fonts'
 
@@ -19,16 +14,11 @@ import {
 // icons
 import { WaveformIcon } from '../icons/Waveform'
 
-// utils
-import {
-  positionLeft,
-  positionTop,
-} from '../utils/dimensions';
-
 const CardAudio = (props: any) => {
   const {
     date,
     gallery,
+    onOpen,
     options,
     src,
     title
@@ -51,7 +41,9 @@ const CardAudio = (props: any) => {
       }}
     >
       <Center
+        className='cancel'
         marginY={3}
+        onClick={onOpen}
         position='relative'
         width={'100%'}
       >
