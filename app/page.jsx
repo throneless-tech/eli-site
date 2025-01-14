@@ -2,6 +2,7 @@
 
 // base imports
 import React, { useEffect, useRef, useState } from 'react';
+import useSWR from 'swr';
 import Image from 'next/image';
 import { chivo } from './styles/fonts';
 import { useDraggable } from "@neodrag/react";
@@ -33,17 +34,30 @@ import styles from './styles/page.module.css';
 import useWindowDimensions from './hooks/useWindowDimensions';
 
 // components
-import CardAudio from './Components/CardAudio';
-import CardImage from './Components/CardImage';
-import CardVideo from './Components/CardVideo';
-import CardLink from './Components/CardLink';
-import CardWord from './Components/CardWord';
 import Nav from './Components/Nav';
 import SwrLayout from './Components/SwrLayout';
 import SwrSlider from './Components/SwrSlider';
 
+// created function to handle API request
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function useItems(url) {
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    items: data,
+    isLoading,
+    isError: error
+  }
+}
+
+const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`
+
 export default function Home() {
   const { height, width } = useWindowDimensions();
+
+  // fetch items from api
+  const { items, isLoading, isError } = useItems(URL);
 
   // random numbers generator for positioning
   function randomHeight() {
@@ -75,93 +89,11 @@ export default function Home() {
   const draggableYoga = useRef(null);
   useDraggable(draggableYoga, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
 
-  const refImage001 = useRef(null);
-  useDraggable(refImage001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage002 = useRef(null);
-  useDraggable(refImage002, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage003 = useRef(null);
-  useDraggable(refImage003, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage004 = useRef(null);
-  useDraggable(refImage004, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage005 = useRef(null);
-  useDraggable(refImage005, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage006 = useRef(null);
-  useDraggable(refImage006, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage007 = useRef(null);
-  useDraggable(refImage007, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage008 = useRef(null);
-  useDraggable(refImage008, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage009 = useRef(null);
-  useDraggable(refImage009, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage010 = useRef(null);
-  useDraggable(refImage010, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage011 = useRef(null);
-  useDraggable(refImage011, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage012 = useRef(null);
-  useDraggable(refImage012, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage013 = useRef(null);
-  useDraggable(refImage013, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage014 = useRef(null);
-  useDraggable(refImage014, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage015 = useRef(null);
-  useDraggable(refImage015, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refImage016 = useRef(null);
-  useDraggable(refImage016, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refVideo001 = useRef(null);
-  useDraggable(refVideo001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refVideo002 = useRef(null);
-  useDraggable(refVideo002, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refVideo003 = useRef(null);
-  useDraggable(refVideo003, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refVideo004 = useRef(null);
-  useDraggable(refVideo004, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-  const refAudio001 = useRef(null);
-  useDraggable(refAudio001, { defaultPosition: { x: randomWidth(), y: randomHeight() } });
-
-
   // check if images should be randomized or form a collage
   const [collage, setCollage] = useState(true);
-  const [clickCount, setClickCount] = useState(0);
 
   const handleCollage = () => {
-    setClickCount(clickCount => clickCount + 1);
     return setCollage(!collage);
-  }
-
-  const positionLeft = () => {
-    if (clickCount >= 1) {
-      return randomWidth() as ResponsiveValue<number>;
-    } else {
-      return 0;
-    }
-  }
-
-  const positionTop = () => {
-    if (clickCount >= 1) {
-      return randomHeight() as ResponsiveValue<number>;
-    } else {
-      return 0;
-    }
   }
 
   // gallery modal settings
@@ -179,7 +111,7 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => { }, [clickCount, collage, matches])
+  useEffect(() => { }, [collage, matches])
 
   return (
     <main>
@@ -293,7 +225,11 @@ export default function Home() {
               />
             </ModalHeader>
             <ModalBody>
-              <SwrSlider />
+              <SwrSlider
+                isError={isError}
+                isLoading={isLoading}
+                items={items}
+              />
             </ModalBody>
           </ModalContent>
         </Modal>
@@ -385,6 +321,9 @@ export default function Home() {
         <Container maxW={'container.2xl'}>
           <SwrLayout
             collage={collage}
+            isError={isError}
+            isLoading={isLoading}
+            items={items}
             matches={matches}
           />
         </Container>

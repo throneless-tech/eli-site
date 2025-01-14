@@ -31,9 +31,6 @@ const CardImage = (props: any) => {
     src
   } = props;
 
-  console.log(options);
-  
-
   // create a ref for each item and make it draggable, if it is not in the gallery view
   const ref = useRef(null);
   useDraggable(ref, options);
@@ -49,9 +46,7 @@ const CardImage = (props: any) => {
       position={gallery ? 'relative' : 'absolute'}
       ref={ref}
       sx={{
-        cursor: gallery ? 'pointer' : 'move',
-        left: gallery ? 0 : positionLeft,
-        top: gallery ? 0 : positionTop,
+        cursor: gallery ? 'pointer' : 'move'
       }}
       width={!matches ? '100%' : 400}
       zIndex={3}

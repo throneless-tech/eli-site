@@ -74,8 +74,13 @@ const FileCollage = (props) => {
               date={date}
               matches={matches}
               options={{
-                x: randomWidth(),
-                y: randomHeight(),
+                defaultPosition: {
+                  x: randomWidth(),
+                  y: randomHeight(),
+                },
+                onDrag: (data) => {
+                  console.log('onDrag', data);
+                }, 
               }}
               src={item.file_urls.original}
             />
@@ -83,8 +88,10 @@ const FileCollage = (props) => {
             <CardVideo
               matches={matches}
               options={{
-                x: randomWidth(),
-                y: randomHeight(),
+                defaultPosition: {
+                  x: randomWidth(),
+                  y: randomHeight(),
+                },
               }}
               src={item.file_urls.original}
             />
@@ -92,8 +99,10 @@ const FileCollage = (props) => {
             <CardAudio
               matches={matches}
               options={{
-                x: randomWidth(),
-                y: randomHeight(),
+                defaultPosition: {
+                  x: randomWidth(),
+                  y: randomHeight(),
+                },
               }}
               src={item.file_urls.original}
             />

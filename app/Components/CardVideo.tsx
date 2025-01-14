@@ -45,9 +45,7 @@ const CardVideo = (props: any) => {
       position={gallery ? 'relative' : 'absolute'}
       ref={ref}
       sx={{
-        cursor: gallery ? 'pointer' : 'move',
-        left: gallery ? 0 : positionLeft,
-        top: gallery ? 0 : positionTop,
+        cursor: gallery ? 'pointer' : 'move'
       }}
       width={!matches ? '100%' : 400}
     >

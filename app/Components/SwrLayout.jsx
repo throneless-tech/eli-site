@@ -1,5 +1,4 @@
 // base imports
-import useSWR from 'swr';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 // chakra ui imports
@@ -12,28 +11,14 @@ import {
 import File from './File';
 import FileCollage from './FileCollage';
 
-// created function to handle API request
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-function useItems(url) {
-  const { data, error, isLoading } = useSWR(url, fetcher)
-
-  return {
-    items: data,
-    isLoading,
-    isError: error
-  }
-}
-
-const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`
-
 const SwrLayout = (props) => {
   const {
     collage,
+    isError,
+    isLoading,
+    items,
     matches
   } = props;
-
-  const { items, isLoading, isError } = useItems(URL);
 
   // Handles error and loading state
   if (isLoading) return <Skeleton height='50px' />;

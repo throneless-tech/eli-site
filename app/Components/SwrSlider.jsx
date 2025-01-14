@@ -1,5 +1,4 @@
 // base imports
-import useSWR from 'swr';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,23 +12,12 @@ import {
 // components
 import File from './File';
 
-// created function to handle API request
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-function useItems(url) {
-  const { data, error, isLoading } = useSWR(url, fetcher)
-
-  return {
-    items: data,
+const SwrSlider = (props) => {
+  const {
+    isError,
     isLoading,
-    isError: error
-  }
-}
-
-const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true`
-
-const SwrSlider = () => {
-  const { items, isLoading, isError } = useItems(URL);
+    items,
+  } = props;
 
   // Handles error and loading state
   if (isLoading) return <Skeleton height='50px' />;
