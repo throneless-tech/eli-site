@@ -40,7 +40,7 @@ const SwrSlider = (props) => {
     setSlide(index);
   }
 
-  useEffect(() => {}, [slide])
+  // useEffect(() => {}, [slide])
 
   return (
     <Slider {...sliderSettings}>
