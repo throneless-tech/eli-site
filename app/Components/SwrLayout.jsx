@@ -21,7 +21,7 @@ const SwrLayout = (props) => {
   } = props;
 
   // Handles error and loading state
-  if (isLoading) return <Skeleton height='50px' />;
+  if (isLoading) return null;
   if (isError) return <Box color='red'>Failed to load.</Box>;
 
   return (

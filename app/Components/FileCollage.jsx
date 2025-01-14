@@ -58,7 +58,7 @@ const FileCollage = (props) => {
   useEffect(() => { }, [date])
 
   // Handles loading and error state
-  // if (isLoading) return <Skeleton height='50px' />;
+  if (isLoading) return null;
   if (isError) return <Box color='red'>Failed to load.</Box>;
 
   return (
