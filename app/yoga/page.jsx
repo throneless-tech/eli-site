@@ -1,19 +1,30 @@
 "use client"
+
+// base imports
 import React, { useEffect, useState } from 'react';
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import useSWR from 'swr';
 import { chivo } from '../styles/fonts';
+
+// chakra ui imports
 import {
   Box,
   Center,
   Container,
   Flex,
+  Heading,
+  HStack,
   Image as ChakraImage,
   Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   Text,
   VStack,
-  Heading,
   VisuallyHidden,
-  HStack,
+  useDisclosure,
 } from '@chakra-ui/react';
 import styles from '../styles/page.module.css';
 
@@ -21,17 +32,36 @@ import styles from '../styles/page.module.css';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 
 // components
-import CardImage from '../Components/CardImage';
 import Nav from '../Components/Nav';
+import SwrLayout from '../Components/SwrLayout';
+import SwrSlider from '../Components/SwrSlider';
 
 // icons and images
 import { SignatureIcon } from '../icons/Signature';
 
+// created function to handle API request
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function useItems(url) {
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    items: data,
+    isLoading,
+    isError: error
+  }
+}
+
+const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true&collection=4`
 
 export default function YogaPage() {
-  const ref1 = React.createRef();
-  const ref2 = React.createRef();
   const { height, width } = useWindowDimensions();
+
+  // fetch items from api
+  const { items, isLoading, isError } = useItems(URL);
+
+  // gallery modal settings
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // media query
   const [matches, setMatches] = useState(false);
@@ -43,6 +73,8 @@ export default function YogaPage() {
       setMatches(false);
     }
   }, []);
+
+  useEffect(() => { }, [matches])
 
   return (
     <main>
@@ -106,50 +138,34 @@ export default function YogaPage() {
         </Flex>
       </Container>
       <Container marginTop={8} maxW={'container.2xl'}>
-        {matches ? (
-          <Masonry>
-            <Box padding={4}>
-              <CardImage
-                date='1/10/2010'
-                height={500}
-                ref={ref1}
-                src='/eli-yoga-01.jpg'
-                width={500}
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='11/29/14'
-                height={700}
-                ref={ref2}
-                src='/eli-yoga-02.jpg'
-                width={400}
-              />
-            </Box>
-          </Masonry>
-        ) : (
-          <>
-            <Box padding={4}>
-              <CardImage
-                date='1/10/2010'
-                height={500}
-                ref={ref1}
-                src='/eli-yoga-01.jpg'
-                width={500}
-              />
-            </Box>
-            <Box padding={4}>
-              <CardImage
-                date='11/29/14'
-                height={700}
-                ref={ref2}
-                src='/eli-yoga-02.jpg'
-                width={400}
-              />
-            </Box>
-          </>
-        )}
+        <SwrLayout
+          collage={false}
+          isError={isError}
+          isLoading={isLoading}
+          items={items}
+          matches={matches}
+          onOpen={onOpen}
+        />
       </Container>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <ModalCloseButton
+              marginLeft='auto'
+              marginRight={0}
+              onClick={onClose}
+            />
+          </ModalHeader>
+          <ModalBody>
+            <SwrSlider
+              isError={isError}
+              isLoading={isLoading}
+              items={items}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </main>
   )
 }

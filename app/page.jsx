@@ -22,7 +22,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  ResponsiveValue,
   Text,
   VisuallyHidden,
   VStack,

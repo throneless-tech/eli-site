@@ -1,28 +1,78 @@
 "use client"
-import React from 'react';
-import Image from 'next/image';
+
+// base imports
+import React, { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import { chivo } from '../styles/fonts';
+
+// chakra ui imports
 import {
   Box,
   Center,
   Container,
   Flex,
-  Link,
-  Text,
-  VStack,
   Heading,
+  Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
   VisuallyHidden,
+  VStack,
 } from '@chakra-ui/react';
 import styles from '../styles/page.module.css';
 
+// hooks
+import useWindowDimensions from '../hooks/useWindowDimensions';
+
 // components
 import Nav from '../Components/Nav';
+import SwrLayout from '../Components/SwrLayout';
+import SwrSlider from '../Components/SwrSlider';
 
 // icons and images
 import { SignatureIcon } from '../icons/Signature';
 
+// created function to handle API request
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function useItems(url) {
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    items: data,
+    isLoading,
+    isError: error
+  }
+}
+
+const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true&collection=3`
 
 export default function MentalHealthPage() {
+  const { height, width } = useWindowDimensions();
+
+  // fetch items from api
+  const { items, isLoading, isError } = useItems(URL);
+
+  // gallery modal settings
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // media query
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    if (width && width >= 768) {
+      setMatches(true);
+    } else {
+      setMatches(false);
+    }
+  }, []);
+
+  useEffect(() => { }, [matches])
 
   return (
     <main>
@@ -66,6 +116,35 @@ export default function MentalHealthPage() {
           </VStack>
         </Flex>
       </Container>
+      <Container marginTop={8} maxW={'container.2xl'}>
+        <SwrLayout
+          collage={false}
+          isError={isError}
+          isLoading={isLoading}
+          items={items}
+          matches={matches}
+          onOpen={onOpen}
+        />
+      </Container>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <ModalCloseButton
+              marginLeft='auto'
+              marginRight={0}
+              onClick={onClose}
+            />
+          </ModalHeader>
+          <ModalBody>
+            <SwrSlider
+              isError={isError}
+              isLoading={isLoading}
+              items={items}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </main>
   )
 }
