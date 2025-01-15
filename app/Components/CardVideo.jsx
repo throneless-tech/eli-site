@@ -9,11 +9,12 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-const CardVideo = (props: any) => {
+const CardVideo = (props) => {
   const {
     date,
     gallery,
     height,
+    index,
     matches,
     onOpen,
     options,
@@ -43,7 +44,7 @@ const CardVideo = (props: any) => {
         className='cancel'
         height={height ? height : 300}
         width={width ? width : "100%"}
-        onClick={onOpen}
+        onClick={!gallery ? () => onOpen(index) : null}
         overflow={'hidden'}
         position='relative'
       >

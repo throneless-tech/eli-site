@@ -18,7 +18,7 @@ const SwrLayout = (props) => {
     isLoading,
     items,
     matches,
-    onOpen
+    onOpen,
   } = props;
 
   // Handles error and loading state
@@ -33,6 +33,7 @@ const SwrLayout = (props) => {
             <FileCollage
               key={`item-${index}`}
               data={item.element_texts}
+              index={index}
               matches={matches}
               onOpen={onOpen}
               url={item.files.url}
@@ -48,6 +49,7 @@ const SwrLayout = (props) => {
               <File
                 key={`item-${index}`}
                 data={item.element_texts}
+                index={index}
                 onOpen={onOpen}
                 url={item.files.url}
               />

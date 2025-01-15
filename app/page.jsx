@@ -98,6 +98,18 @@ export default function Home() {
   // gallery modal settings
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // watch what image is clicked and update the intial gallery slide to match
+  const [slide, setSlide] = useState(0);
+
+  const updateSlide = (index) => {
+    console.log(index);
+
+    setSlide(index);
+    onOpen();
+  }
+
+  useEffect(() => { }, [slide])
+
   // media query
   const [matches, setMatches] = useState(false);
 
@@ -110,7 +122,8 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => { }, [collage, matches])
+  useEffect(() => {console.log(items);
+   }, [collage, matches])
 
   return (
     <main>
@@ -228,6 +241,7 @@ export default function Home() {
                 isError={isError}
                 isLoading={isLoading}
                 items={items}
+                slide={slide}
               />
             </ModalBody>
           </ModalContent>
@@ -324,7 +338,7 @@ export default function Home() {
             isLoading={isLoading}
             items={items}
             matches={matches}
-            onOpen={onOpen}
+            onOpen={updateSlide}
           />
         </Container>
       </Box>

@@ -31,8 +31,8 @@ const File = (props) => {
 
   const {
     data,
+    index,
     onOpen,
-    updateSlide,
     url
   } = props;
 
@@ -65,6 +65,7 @@ const File = (props) => {
           {item.mime_type.includes("image") ? (
             <CardImage
               gallery
+              index={index}
               options={{ disabled: true }}
               onOpen={onOpen}
               organized
@@ -74,6 +75,7 @@ const File = (props) => {
           ) : item.mime_type.includes("video") ? (
             <CardVideo
               gallery
+              index={index}
               onOpen={onOpen}
               options={{ disabled: true }}
               src={item.file_urls.original}
@@ -81,6 +83,7 @@ const File = (props) => {
           ) : item.mime_type.includes("audio") ? (
             <CardAudio
               gallery
+              index={index}
               onOpen={onOpen}
               options={{ disabled: true }}
               src={item.file_urls.original}

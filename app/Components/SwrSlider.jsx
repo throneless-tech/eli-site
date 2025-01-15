@@ -14,12 +14,11 @@ import {
 import File from './File';
 
 const SwrSlider = (props) => {
-  const [slide, setSlide] = useState(0);
-
   const {
     isError,
     isLoading,
     items,
+    slide
   } = props;
 
   // Handles error and loading state
@@ -36,12 +35,6 @@ const SwrSlider = (props) => {
     slidesToScroll: 1,
   };
 
-  const updateSlide = (index) => {
-    setSlide(index);
-  }
-
-  // useEffect(() => {}, [slide])
-
   return (
     <Slider {...sliderSettings}>
       {items && items.length && items.map((item, index) => (
@@ -49,7 +42,6 @@ const SwrSlider = (props) => {
           key={`item-${index}`}
           data={item.element_texts}
           url={item.files.url}
-          updateSlide={updateSlide}
         />
       ))}
     </Slider>

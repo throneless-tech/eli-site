@@ -39,6 +39,7 @@ const FileCollage = (props) => {
 
   const {
     data,
+    index,
     matches,
     onOpen,
     url
@@ -73,6 +74,7 @@ const FileCollage = (props) => {
             <CardImage
               organized
               date={date}
+              index={index}
               matches={matches}
               onOpen={onOpen}
               options={{
@@ -86,6 +88,7 @@ const FileCollage = (props) => {
             />
           ) : item.mime_type.includes("video") ? (
             <CardVideo
+              index={index}
               matches={matches}
               onOpen={onOpen}
               options={{
@@ -99,6 +102,7 @@ const FileCollage = (props) => {
             />
           ) : item.mime_type.includes("audio") ? (
             <CardAudio
+              index={index}
               matches={matches}
               onOpen={onOpen}
               options={{

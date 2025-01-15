@@ -10,15 +10,16 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-const CardImage = (props: any) => {
+const CardImage = (props) => {
   const {
     date,
     gallery,
+    index,
     matches,
     onOpen,
     options,
     organized,
-    src
+    src,
   } = props;
 
   // create a ref for each item and make it draggable, if it is not in the gallery view
@@ -39,7 +40,7 @@ const CardImage = (props: any) => {
       sx={{
         cursor: gallery ? 'pointer' : 'move'
       }}
-      width={!matches ? '100%' : 400}
+      width={!matches || gallery ? '100%' : 400}
       zIndex={3}
     >
       <Box
@@ -50,10 +51,10 @@ const CardImage = (props: any) => {
       >
         <Box
           className='cancel'
-          height={[200, organized ? 400 : '100%']}
-          onClick={onOpen}
+          height={[200, organized ? 500 : '100%']}
+          onClick={!gallery ? () => onOpen(index) : null}
           position='relative'
-          width={organized ? 400 : '100%'}
+          width={!organized || gallery ? '100%' : 400}
         >
           <Image
             src={src}

@@ -14,10 +14,11 @@ import {
 // icons
 import { WaveformIcon } from '../icons/Waveform'
 
-const CardAudio = (props: any) => {
+const CardAudio = (props) => {
   const {
     date,
     gallery,
+    index,
     onOpen,
     options,
     src,
@@ -43,7 +44,7 @@ const CardAudio = (props: any) => {
       <Center
         className='cancel'
         marginY={3}
-        onClick={onOpen}
+        onClick={!gallery ? () => onOpen(index) : null}
         position='relative'
         width={'100%'}
       >
