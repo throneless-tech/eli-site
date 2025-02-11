@@ -27,6 +27,8 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
+
+// styles
 import styles from './styles/page.module.css';
 
 //hooks
