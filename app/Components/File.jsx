@@ -32,6 +32,7 @@ const File = (props) => {
   const {
     data,
     index,
+    isModal,
     onOpen,
     url
   } = props;
@@ -66,6 +67,7 @@ const File = (props) => {
             <CardImage
               gallery
               index={index}
+              isModal={isModal}
               options={{ disabled: true }}
               onOpen={onOpen}
               organized
@@ -76,6 +78,7 @@ const File = (props) => {
             <CardVideo
               gallery
               index={index}
+              isModal={isModal}
               onOpen={onOpen}
               options={{ disabled: true }}
               src={item.file_urls.original}
@@ -84,6 +87,7 @@ const File = (props) => {
             <CardAudio
               gallery
               index={index}
+              isModal={isModal}
               onOpen={onOpen}
               options={{ disabled: true }}
               src={item.file_urls.original}

@@ -17,6 +17,7 @@ const SwrSlider = (props) => {
   const {
     isError,
     isLoading,
+    isModal,
     items,
     slide
   } = props;
@@ -41,6 +42,7 @@ const SwrSlider = (props) => {
         <File
           key={`item-${index}`}
           data={item.element_texts}
+          isModal
           url={item.files.url}
         />
       ))}

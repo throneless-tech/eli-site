@@ -15,6 +15,7 @@ const CardImage = (props) => {
     date,
     gallery,
     index,
+    isModal,
     matches,
     onOpen,
     options,
@@ -52,7 +53,7 @@ const CardImage = (props) => {
         <Box
           className='cancel'
           height={[200, organized ? 500 : '100%']}
-          onClick={!gallery ? () => onOpen(index) : null}
+          onClick={!isModal ? () => onOpen(index) : null}
           position='relative'
           width={!organized || gallery ? '100%' : 400}
         >

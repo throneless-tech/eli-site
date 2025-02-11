@@ -52,7 +52,7 @@ function useItems(url) {
   }
 }
 
-const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?featured=true&public=true&collection=4`
+const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?public=true&collection=4`
 
 export default function YogaPage() {
   const { height, width } = useWindowDimensions();
@@ -63,6 +63,17 @@ export default function YogaPage() {
   // gallery modal settings
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // watch what image is clicked and update the intial gallery slide to match
+  const [slide, setSlide] = useState(0);
+
+  const updateSlide = (index) => {
+    console.log(index);
+
+    setSlide(index);
+    onOpen();
+  }
+
+  useEffect(() => { }, [slide])
   // media query
   const [matches, setMatches] = useState(false);
 
@@ -144,7 +155,7 @@ export default function YogaPage() {
           isLoading={isLoading}
           items={items}
           matches={matches}
-          onOpen={onOpen}
+          onOpen={updateSlide}
         />
       </Container>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -161,7 +172,9 @@ export default function YogaPage() {
             <SwrSlider
               isError={isError}
               isLoading={isLoading}
+              isModal
               items={items}
+              slide={slide}
             />
           </ModalBody>
         </ModalContent>

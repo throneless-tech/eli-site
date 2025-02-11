@@ -240,6 +240,7 @@ export default function Home() {
               <SwrSlider
                 isError={isError}
                 isLoading={isLoading}
+                isModal
                 items={items}
                 slide={slide}
               />
