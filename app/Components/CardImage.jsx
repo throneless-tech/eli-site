@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { useDraggable } from "@neodrag/react";
 import { chivo } from '../styles/fonts';
 
+// styles
+import styles from '../styles/page.module.css';
+
 // chakra ui imports
 import {
   Box,
@@ -41,7 +44,7 @@ const CardImage = (props) => {
       sx={{
         cursor: gallery ? 'pointer' : 'move'
       }}
-      width={!matches || gallery ? '100%' : 400}
+      width={!matches || gallery || isModal ? '100%' : 400}
       zIndex={3}
     >
       <Box
@@ -52,17 +55,17 @@ const CardImage = (props) => {
       >
         <Box
           className='cancel'
-          height={[200, organized ? 500 : '100%']}
+          height={[200, isModal ? '90vh' : organized ? 400 : '100%']}
           onClick={!isModal ? () => onOpen(index) : null}
           position='relative'
-          width={!organized || gallery ? '100%' : 400}
+          width={!organized || gallery || isModal ? '100%' : 400}
         >
           <Image
             src={src}
             alt='Eli'
             fill={true}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            style={{ cursor: 'pointer', objectFit: "cover" }}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            style={{ cursor: 'pointer', objectFit: isModal ? "contain" : "cover" }}
           />
         </Box>
         <Text

@@ -124,9 +124,15 @@ export default function FashionPage() {
           onOpen={updateSlide}
         />
       </Container>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+      <Modal isOpen={isOpen} onClose={onClose} size='full'>
+        <ModalOverlay/>
         <ModalContent>
+          <Box className={styles.background}>
+            <Box
+              id={styles.fashion}
+              className={styles.backgroundStatic}
+            />
+          </Box>
           <ModalHeader>
             <ModalCloseButton
               marginLeft='auto'

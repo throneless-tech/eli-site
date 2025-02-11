@@ -136,9 +136,15 @@ export default function ComedyPage() {
           onOpen={updateSlide}
         />
       </Container>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='full'>
         <ModalOverlay />
         <ModalContent>
+          <Box className={styles.background}>
+            <Box
+              id={styles.comedy}
+              className={styles.backgroundStatic}
+            />
+          </Box>
           <ModalHeader>
             <ModalCloseButton
               marginLeft='auto'

@@ -137,9 +137,15 @@ export default function MentalHealthPage() {
           onOpen={updateSlide}
         />
       </Container>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='full'>
         <ModalOverlay />
         <ModalContent>
+          <Box className={styles.background}>
+            <Box
+              id={styles.mentalHealth}
+              className={styles.backgroundStatic}
+            />
+          </Box>
           <ModalHeader>
             <ModalCloseButton
               marginLeft='auto'

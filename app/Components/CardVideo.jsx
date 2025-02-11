@@ -15,6 +15,7 @@ const CardVideo = (props) => {
     gallery,
     height,
     index,
+    isModal,
     matches,
     onOpen,
     options,
@@ -42,9 +43,9 @@ const CardVideo = (props) => {
     >
       <Box
         className='cancel'
-        height={height ? height : 300}
+        height={isModal ? '80vh' : height ? height : 300}
         width={width ? width : "100%"}
-        onClick={!gallery ? () => onOpen(index) : null}
+        onClick={!isModal ? () => onOpen(index) : null}
         overflow={'hidden'}
         position='relative'
       >

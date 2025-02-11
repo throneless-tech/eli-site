@@ -17,7 +17,6 @@ const SwrSlider = (props) => {
   const {
     isError,
     isLoading,
-    isModal,
     items,
     slide
   } = props;
@@ -28,12 +27,14 @@ const SwrSlider = (props) => {
 
   // gallery slider settings
   var sliderSettings = {
+    adaptiveHeight: true,
     dots: true,
     infinite: true,
     initialSlide: slide,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    // variableWidth: true,
   };
 
   return (

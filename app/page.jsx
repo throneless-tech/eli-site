@@ -191,7 +191,7 @@ export default function Home() {
         >
           <Text
             as={"button"}
-            onClick={onOpen}
+            onClick={() => updateSlide(0)}
             className={chivo.className}
             color="#FFFFFF"
             display={"block"}
@@ -226,9 +226,15 @@ export default function Home() {
             </Text>
           ) : null}
         </HStack>
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} size='full'>
           <ModalOverlay />
           <ModalContent>
+            <Box className={styles.background}>
+              <Box
+                id={styles.fashion}
+                className={styles.backgroundStatic}
+              />
+            </Box>
             <ModalHeader>
               <ModalCloseButton
                 marginLeft='auto'

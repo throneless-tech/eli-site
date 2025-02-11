@@ -158,9 +158,15 @@ export default function YogaPage() {
           onOpen={updateSlide}
         />
       </Container>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='full'>
         <ModalOverlay />
         <ModalContent>
+          <Box className={styles.background}>
+            <Box
+              id={styles.yoga}
+              className={styles.backgroundStatic}
+            />
+          </Box>
           <ModalHeader>
             <ModalCloseButton
               marginLeft='auto'
