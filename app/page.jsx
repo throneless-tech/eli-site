@@ -192,13 +192,14 @@ export default function Home() {
           maxW={300}
         >
           <Text
-            as={"button"}
-            onClick={() => updateSlide(0)}
+            as="a"
+            // onClick={() => updateSlide(0)}
             className={chivo.className}
             color="#FFFFFF"
             display={"block"}
             fontSize={24}
             fontWeight="bold"
+            href="/gallery"
             marginLeft={"auto"}
             marginRight={0}
             position='relative'
