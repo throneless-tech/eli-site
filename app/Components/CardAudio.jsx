@@ -31,7 +31,7 @@ const CardAudio = (props) => {
 
   return (
     <Box
-      background={'#FFF'}
+      background={'#000'}
       borderRadius={8}
       boxShadow={'0px 4px 4px 0px rgba(0, 0, 0, 0.25);'}
       padding={'8px'}

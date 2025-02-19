@@ -6,6 +6,7 @@ import { useDraggable } from "@neodrag/react";
 // chakra ui imports
 import {
   Box,
+  Center,
   Text,
 } from '@chakra-ui/react'
 
@@ -30,7 +31,7 @@ const CardVideo = (props) => {
 
   return (
     <Box
-      background={'#FFF'}
+      background={'#000'}
       borderRadius={8}
       boxShadow={'0px 4px 4px 0px rgba(0, 0, 0, 0.25);'}
       padding={'8px'}
@@ -49,9 +50,11 @@ const CardVideo = (props) => {
         overflow={'hidden'}
         position='relative'
       >
-        <video autoPlay muted loop playsInline>
-          <source src={src} type="video/mp4" />
-        </video>
+        <Center>
+          <video autoPlay muted loop playsInline>
+            <source src={src} type="video/mp4" />
+          </video>
+        </Center>
       </Box>
       <Text
         background={'pink.100'}

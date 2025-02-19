@@ -54,7 +54,7 @@ function useItems(url) {
 
 const URL = `${process.env.NEXT_PUBLIC_OMEKA_URL}/items?public=true`
 
-export default function ComedyPage() {
+export default function GalleryPage() {
   const { height, width } = useWindowDimensions();
 
   // fetch items from api
@@ -106,7 +106,7 @@ export default function ComedyPage() {
             </Heading>
           </VisuallyHidden>
           <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Gallery
+            Photography and things of and by Eli
           </Text>
           <Nav selected="gallery" />
         </VStack>

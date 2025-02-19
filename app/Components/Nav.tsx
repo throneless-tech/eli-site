@@ -48,21 +48,6 @@ export default function Nav(props: any) {
       </Button>
       <Button
         as="a"
-        background={selected == "gallery" ? "orange.500" : "red.500"}
-        className={chivo.className}
-        fontWeight="bold"
-        fontSize={24}
-        href='/gallery'
-        textAlign="center"
-        width={[326, 'unset']}
-        _hover={{
-          background: "red.900",
-        }}
-      >
-        Gallery
-      </Button>
-      <Button
-        as="a"
         background={selected == "mental-health" ? "orange.500" : "red.500"}
         className={chivo.className}
         fontWeight="bold"
@@ -91,6 +76,23 @@ export default function Nav(props: any) {
       >
         Yoga
       </Button>
+      {!selected ? null : (
+        <Button
+          as="a"
+          background={selected == "gallery" ? "orange.500" : "red.500"}
+          className={chivo.className}
+          fontWeight="bold"
+          fontSize={24}
+          href='/gallery'
+          textAlign="center"
+          width={[326, 'unset']}
+          _hover={{
+            background: "red.900",
+          }}
+        >
+          Gallery
+        </Button>
+      )}
     </Flex>
   )
 }
