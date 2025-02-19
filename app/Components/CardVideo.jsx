@@ -31,7 +31,7 @@ const CardVideo = (props) => {
 
   return (
     <Box
-      background={gallery ? '#000' : '#FFF'}
+      background={isModal ? '#000' : '#FFF'}
       borderRadius={8}
       boxShadow={'0px 4px 4px 0px rgba(0, 0, 0, 0.25);'}
       padding={'8px'}
