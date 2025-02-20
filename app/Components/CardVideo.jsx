@@ -60,6 +60,7 @@ const CardVideo = (props) => {
         background={'pink.100'}
         borderBottomRadius={4}
         className={chivo.className}
+        height={8}
         padding={'4px'}
         textAlign={'center'}
       >
