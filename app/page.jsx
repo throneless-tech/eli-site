@@ -298,14 +298,14 @@ export default function Home() {
                   className={`${styles.nav} ${chivo.className}`}
                   fontWeight="bold"
                   fontSize={24}
-                  href='/mental-health'
-                  ref={draggableHealth}
+                  href='/fashion'
+                  ref={draggableFashion}
                   textAlign="center"
                   _hover={{
                     background: "red.900",
                   }}
                 >
-                  Mental Health
+                  Fashion
                 </Button>
                 <Button
                   as="a"
@@ -328,14 +328,14 @@ export default function Home() {
                   className={`${styles.nav} ${chivo.className}`}
                   fontWeight="bold"
                   fontSize={24}
-                  href='/fashion'
-                  ref={draggableFashion}
+                  href='/mental-health'
+                  ref={draggableHealth}
                   textAlign="center"
                   _hover={{
                     background: "red.900",
                   }}
                 >
-                  Fashion
+                  Mental Health
                 </Button>
               </>
             )}

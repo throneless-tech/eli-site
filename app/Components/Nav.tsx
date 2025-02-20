@@ -18,18 +18,18 @@ export default function Nav(props: any) {
     >
       <Button
         as="a"
-        background={selected == "comedy" ? "orange.500" : "red.500"}
+        background={selected == "yoga" ? "orange.500" : "red.500"}
         className={chivo.className}
         fontWeight="bold"
         fontSize={24}
-        href='/comedy'
+        href='/yoga'
         textAlign="center"
         width={[326, 'unset']}
         _hover={{
           background: "red.900",
         }}
       >
-        Comedy
+        Yoga
       </Button>
       <Button
         as="a"
@@ -48,6 +48,21 @@ export default function Nav(props: any) {
       </Button>
       <Button
         as="a"
+        background={selected == "comedy" ? "orange.500" : "red.500"}
+        className={chivo.className}
+        fontWeight="bold"
+        fontSize={24}
+        href='/comedy'
+        textAlign="center"
+        width={[326, 'unset']}
+        _hover={{
+          background: "red.900",
+        }}
+      >
+        Comedy
+      </Button>
+      <Button
+        as="a"
         background={selected == "mental-health" ? "orange.500" : "red.500"}
         className={chivo.className}
         fontWeight="bold"
@@ -60,21 +75,6 @@ export default function Nav(props: any) {
         }}
       >
         Mental Health
-      </Button>
-      <Button
-        as="a"
-        background={selected == "yoga" ? "orange.500" : "red.500"}
-        className={chivo.className}
-        fontWeight="bold"
-        fontSize={24}
-        href='/yoga'
-        textAlign="center"
-        width={[326, 'unset']}
-        _hover={{
-          background: "red.900",
-        }}
-      >
-        Yoga
       </Button>
       {!selected ? null : (
         <Button
