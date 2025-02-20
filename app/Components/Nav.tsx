@@ -11,7 +11,7 @@ export default function Nav(props: any) {
   return (
     <Flex
       align="center"
-      direction={['column', 'row']}
+      direction={['column', 'column', 'row']}
       justify="center"
       marginTop={4}
       gap='4'
