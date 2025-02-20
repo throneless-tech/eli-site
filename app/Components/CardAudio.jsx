@@ -19,6 +19,7 @@ const CardAudio = (props) => {
     date,
     gallery,
     index,
+    isModal,
     onOpen,
     options,
     src,
