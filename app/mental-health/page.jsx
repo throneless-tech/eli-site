@@ -87,83 +87,85 @@ export default function MentalHealthPage() {
 
   return (
     <main>
-      <Box className={styles.background}>
-        <Box
-          id={styles.mentalHealth}
-          className={styles.backgroundStatic}
-        />
-      </Box>
-      <Center marginTop={8}>
-        <VStack>
-          <Link href="/">
-            <SignatureIcon sx={{ height: ['60px', 149], width: [300, 867] }} />
-          </Link>
-          <VisuallyHidden>
-            <Heading as='h1'>
-              Eli Fife Cragin
-            </Heading>
-          </VisuallyHidden>
-          <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            “Bessel Van der kolk is a legend.” - Eli
-          </Text>
-          <Nav selected="mental-health" />
-        </VStack>
-      </Center>
-      <Container maxW={'container.lg'} marginTop={12}>
-        <Flex direction={['column', 'row']} alignItems='center' gap='6'>
-          <Box as='h2' textStyle='h2' className={chivo.className}>
-            Check out these resources:
-          </Box>
-          <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 550]}>
-            <Link href='https://www.besselvanderkolk.com/resources/the-body-keeps-the-score'>
-              Van der Kolk: Brain, Mind, and Body in the Healing of Trauma
+      <Box overflowX={'hidden'}>
+        <Box className={styles.background}>
+          <Box
+            id={styles.mentalHealth}
+            className={styles.backgroundStatic}
+          />
+        </Box>
+        <Center marginTop={8}>
+          <VStack>
+            <Link href="/">
+              <SignatureIcon sx={{ height: ['60px', 149], width: [300, 300, 867] }} />
             </Link>
-            <Link href='https://www.enneagraminstitute.com/the-traditional-enneagram'>
-              Traditional Enneagram
-            </Link>
-            <Link href='https://catdogs.org/'>
-              Get yourself a Mr. Bodhi
-            </Link>
+            <VisuallyHidden>
+              <Heading as='h1'>
+                Eli Fife Cragin
+              </Heading>
+            </VisuallyHidden>
+            <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={[300, 300, 760]}>
+              “Bessel Van der kolk is a legend.” - Eli
+            </Text>
+            <Nav selected="mental-health" />
           </VStack>
-        </Flex>
-      </Container>
-      <Container marginTop={8} maxW={'container.2xl'}>
-        <SwrLayout
-          collage={false}
-          isError={isError}
-          isLoading={isLoading}
-          items={items}
-          matches={matches}
-          onOpen={updateSlide}
-        />
-      </Container>
-      <Modal isOpen={isOpen} onClose={onClose} size='full'>
-        <ModalOverlay />
-        <ModalContent>
-          <Box className={styles.background}>
-            <Box
-              id={styles.mentalHealth}
-              className={styles.backgroundStatic}
-            />
-          </Box>
-          <ModalHeader>
-            <ModalCloseButton
-              marginLeft='auto'
-              marginRight={0}
-              onClick={onClose}
-            />
-          </ModalHeader>
-          <ModalBody>
-            <SwrSlider
-              isError={isError}
-              isLoading={isLoading}
-              isModal
-              items={items}
-              slide={slide}
-            />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+        </Center>
+        <Container maxW={'container.lg'} marginTop={12}>
+          <Flex direction={['column', 'column', 'row']} alignItems='center' gap='6'>
+            <Box as='h2' textStyle='h2' className={chivo.className}>
+              Check out these resources:
+            </Box>
+            <VStack align='flex-start' className={chivo.className} fontSize={24} width={[300, 550]}>
+              <Link href='https://www.besselvanderkolk.com/resources/the-body-keeps-the-score'>
+                Van der Kolk: Brain, Mind, and Body in the Healing of Trauma
+              </Link>
+              <Link href='https://www.enneagraminstitute.com/the-traditional-enneagram'>
+                Traditional Enneagram
+              </Link>
+              <Link href='https://catdogs.org/'>
+                Get yourself a Mr. Bodhi
+              </Link>
+            </VStack>
+          </Flex>
+        </Container>
+        <Container marginTop={8} maxW={'container.2xl'}>
+          <SwrLayout
+            collage={false}
+            isError={isError}
+            isLoading={isLoading}
+            items={items}
+            matches={matches}
+            onOpen={updateSlide}
+          />
+        </Container>
+        <Modal isOpen={isOpen} onClose={onClose} size='full'>
+          <ModalOverlay />
+          <ModalContent>
+            <Box className={styles.background}>
+              <Box
+                id={styles.mentalHealth}
+                className={styles.backgroundStatic}
+              />
+            </Box>
+            <ModalHeader>
+              <ModalCloseButton
+                marginLeft='auto'
+                marginRight={0}
+                onClick={onClose}
+              />
+            </ModalHeader>
+            <ModalBody>
+              <SwrSlider
+                isError={isError}
+                isLoading={isLoading}
+                isModal
+                items={items}
+                slide={slide}
+              />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </Box>
     </main>
   )
 }

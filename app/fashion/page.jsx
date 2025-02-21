@@ -92,65 +92,67 @@ export default function FashionPage() {
 
   return (
     <main>
-      <Box className={styles.background}>
-        <Box
-          id={styles.fashion}
-          className={styles.backgroundStatic}
-        />
+      <Box overflowX={'hidden'}>
+        <Box className={styles.background}>
+          <Box
+            id={styles.fashion}
+            className={styles.backgroundStatic}
+          />
+        </Box>
+        <Center marginTop={8}>
+          <VStack>
+            <Link href="/">
+              <SignatureIcon sx={{ height: ['60px', 149], width: [300, 300, 867] }} />
+            </Link>
+            <VisuallyHidden>
+              <Heading as='h1'>
+                Eli Fife Cragin
+              </Heading>
+            </VisuallyHidden>
+            <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={[300, 300, 760]}>
+              Fashun
+            </Text>
+            <Nav selected="fashion" />
+          </VStack>
+        </Center>
+        <Container marginTop={8} maxW={'container.2xl'}>
+          <SwrLayout
+            collage={false}
+            isError={isError}
+            isLoading={isLoading}
+            items={items}
+            matches={matches}
+            onOpen={updateSlide}
+          />
+        </Container>
+        <Modal isOpen={isOpen} onClose={onClose} size='full'>
+          <ModalOverlay />
+          <ModalContent>
+            <Box className={styles.background}>
+              <Box
+                id={styles.fashion}
+                className={styles.backgroundStatic}
+              />
+            </Box>
+            <ModalHeader>
+              <ModalCloseButton
+                marginLeft='auto'
+                marginRight={0}
+                onClick={onClose}
+              />
+            </ModalHeader>
+            <ModalBody>
+              <SwrSlider
+                isError={isError}
+                isLoading={isLoading}
+                isModal
+                items={items}
+                slide={slide}
+              />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </Box>
-      <Center marginTop={8}>
-        <VStack>
-          <Link href="/">
-            <SignatureIcon sx={{ height: ['60px', 149], width: [300, 867] }} />
-          </Link>
-          <VisuallyHidden>
-            <Heading as='h1'>
-              Eli Fife Cragin
-            </Heading>
-          </VisuallyHidden>
-          <Text className={chivo.className} color='#FFF' fontSize={[20, 36]} fontWeight={600} textAlign={'center'} marginTop={[4, 8]} width={760}>
-            Fashun
-          </Text>
-          <Nav selected="fashion" />
-        </VStack>
-      </Center>
-      <Container marginTop={8} maxW={'container.2xl'}>
-        <SwrLayout
-          collage={false}
-          isError={isError}
-          isLoading={isLoading}
-          items={items}
-          matches={matches}
-          onOpen={updateSlide}
-        />
-      </Container>
-      <Modal isOpen={isOpen} onClose={onClose} size='full'>
-        <ModalOverlay/>
-        <ModalContent>
-          <Box className={styles.background}>
-            <Box
-              id={styles.fashion}
-              className={styles.backgroundStatic}
-            />
-          </Box>
-          <ModalHeader>
-            <ModalCloseButton
-              marginLeft='auto'
-              marginRight={0}
-              onClick={onClose}
-            />
-          </ModalHeader>
-          <ModalBody>
-            <SwrSlider
-              isError={isError}
-              isLoading={isLoading}
-              isModal
-              items={items}
-              slide={slide}
-            />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </main>
   )
 }
